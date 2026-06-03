@@ -6,26 +6,20 @@ export default function VideoSection() {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <section id="video" className="relative py-20 lg:py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
+    <section id="video" className="relative py-16 lg:py-20 overflow-hidden bg-[#050d1a]">
       
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-8"
         >
-          <span className="inline-block bg-accent/15 text-accent text-sm font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide uppercase">
-            Free Training Video
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Watch Before You Make Your Next
-            <span className="text-gradient"> Villa Decision</span>
+          <h2 className="font-display font-extrabold text-white text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight mb-3">
+            WATCH THE FREE VIDEO
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            In under 15 minutes, discover the 7 critical truths every Orlando villa owner needs to know — 
-            before it costs you another season of lost revenue.
+          <p className="text-white/55 text-base max-w-xl mx-auto">
+            In under 15 minutes, discover the 7 critical truths every Orlando villa owner needs to know.
           </p>
         </motion.div>
 

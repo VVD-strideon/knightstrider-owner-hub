@@ -1,34 +1,35 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { TrendingUp, Shield, Clock, DollarSign } from "lucide-react";
+import { Home, DollarSign, MapPin, Shield } from "lucide-react";
 
 const benefits = [
-  { icon: TrendingUp, label: "Higher Occupancy", desc: "Fill more weeks at premium rates" },
-  { icon: DollarSign, label: "More Revenue", desc: "Keep more of what you earn" },
-  { icon: Shield, label: "Owner Control", desc: "Stop relying on middlemen" },
-  { icon: Clock, label: "Less Stress", desc: "Systems that run themselves" },
+  { icon: Home, label: "SMART INVESTMENT", desc: "Build wealth with your villa." },
+  { icon: DollarSign, label: "STRONG INCOME POTENTIAL", desc: "Higher bookings. Better returns." },
+  { icon: MapPin, label: "UNBEATABLE LOCATION", desc: "Orlando – year-round demand." },
+  { icon: Shield, label: "OWNER CONTROL", desc: "No middlemen. More freedom." },
 ];
 
 export default function BenefitsStrip() {
   return (
-    <section className="relative py-16 border-y border-border/50">
-      <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-primary/5 to-accent/5" />
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+    <section className="bg-[#071828] border-y border-white/10 py-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-0 lg:divide-x lg:divide-white/10">
           {benefits.map((b, i) => (
             <motion.div
               key={b.label}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center group"
+              transition={{ delay: i * 0.08 }}
+              className="flex items-start gap-3 px-4 py-2"
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 mb-3 group-hover:bg-primary/20 transition-colors">
-                <b.icon className="w-7 h-7 text-primary" />
+              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/20 border border-accent/30 flex items-center justify-center mt-0.5">
+                <b.icon className="w-5 h-5 text-accent" />
               </div>
-              <h3 className="font-display font-bold text-white text-lg mb-1">{b.label}</h3>
-              <p className="text-muted-foreground text-sm">{b.desc}</p>
+              <div>
+                <p className="text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase leading-tight">{b.label}</p>
+                <p className="text-white/55 text-xs mt-0.5 leading-snug">{b.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>

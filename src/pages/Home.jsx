@@ -1,21 +1,17 @@
-import React, { useRef } from "react";
+import React from "react";
 import HeroSection from "@/components/landing/HeroSection";
-import TrustBadges from "@/components/landing/TrustBadges";
-import VideoSection from "@/components/landing/VideoSection";
 import BenefitsStrip from "@/components/landing/BenefitsStrip";
-import ToolkitPreview from "@/components/landing/ToolkitPreview";
-import WhatsIncluded from "@/components/landing/WhatsIncluded";
-import OwnerOutcomes from "@/components/landing/OwnerOutcomes";
-import TestimonialSection from "@/components/landing/TestimonialSection";
-import FAQSection from "@/components/landing/FAQSection";
+import VideoSection from "@/components/landing/VideoSection";
+import ToolkitSection from "@/components/landing/ToolkitSection";
+import SmartOwnershipBenefits from "@/components/landing/SmartOwnershipBenefits";
+import ResultsSection from "@/components/landing/ResultsSection";
 import LeadForm from "@/components/landing/LeadForm";
+import FAQSection from "@/components/landing/FAQSection";
 import FinalCTA from "@/components/landing/FinalCTA";
 import Footer from "@/components/landing/Footer";
 import { base44 } from "@/api/base44Client";
 
 export default function Home() {
-  const formRef = useRef(null);
-
   const scrollToForm = () => {
     base44.analytics.track({ eventName: "toolkit_download_started", properties: { source: "cta_button" } });
     document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
@@ -29,17 +25,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection onWatchVideo={scrollToVideo} onDownload={scrollToForm} />
-      <TrustBadges />
-      <VideoSection />
       <BenefitsStrip />
-      <ToolkitPreview onDownload={scrollToForm} />
-      <WhatsIncluded />
+      <VideoSection />
+      <ToolkitSection onDownload={scrollToForm} />
+      <SmartOwnershipBenefits />
+      <ResultsSection />
       <LeadForm id="lead-form" />
-      <OwnerOutcomes />
-      <TestimonialSection />
       <FAQSection />
-      <FinalCTA onDownload={scrollToForm} onWatchVideo={scrollToVideo} />
-      <LeadForm id="lead-form-bottom" />
+      <FinalCTA onDownload={scrollToForm} />
       <Footer />
     </div>
   );
