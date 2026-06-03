@@ -29,14 +29,17 @@ export default function HeroSection({ onDownload }) {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="overflow-hidden"
-          style={{ margin: '-18% -12%' }}
+          className="flex items-center gap-3"
         >
           <img
-            src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/e5e48228c_Knightstridervillaslanscapewhite1920x1080px1920x1080pxLogo.png"
-            alt="Knightstrider Villas Direct"
-            className="w-72 sm:w-96 object-contain"
+            src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/352225a59_image62.png"
+            alt="Knightstrider Villas Direct icon"
+            className="w-14 h-14 sm:w-16 sm:h-16 object-contain flex-shrink-0"
           />
+          <div className="leading-none text-left">
+            <p className="text-white font-extrabold text-sm sm:text-base tracking-widest uppercase">KNIGHTSTRIDER</p>
+            <p className="text-primary font-extrabold text-sm sm:text-base tracking-widest uppercase">VILLAS DIRECT</p>
+          </div>
         </motion.div>
 
         {/* Giant headline */}
