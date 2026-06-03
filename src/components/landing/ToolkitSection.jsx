@@ -30,7 +30,7 @@ export default function ToolkitSection({ onDownload }) {
             viewport={{ once: true }}
             className="relative flex justify-center"
           >
-            <div className="relative w-full max-w-sm">
+            <div className="relative w-full max-w-2xl">
               <img
                 src={TOOLKIT_IMG}
                 alt="9-Tool Villa Owner Toolkit"
