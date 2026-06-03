@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Download, CheckCircle2, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const TOOLKIT_IMG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/4d6430a1f_generated_image.png";
+const TOOLKIT_IMG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/61db6d2a6_ChatGPTImageJun3202612_38_07PM.png";
 
 const tools = [
   "Villa Investor Scorecard",
