@@ -41,7 +41,7 @@ Deno.serve(async (req) => {
     }
 
     // Step 2: Send the toolkit email with full branding
-    const FROM_EMAIL = 'Knightstrider Villas <onboarding@resend.dev>';
+    const FROM_EMAIL = 'Knightstrider Villas <stride_on@updates.knightstridervillas.com>';
 
     const emailResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
