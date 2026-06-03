@@ -15,42 +15,40 @@ const VILLA_BG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed7
 
 export default function OwnerOutcomes() {
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden bg-navy">
+    <section className="relative py-20 lg:py-28 overflow-hidden">
+      {/* Background */}
       <div className="absolute inset-0">
-        <img src={VILLA_BG} alt="Orlando villa" className="w-full h-full object-cover opacity-20" />
-        <div className="absolute inset-0" style={{ background: "rgba(8,29,58,0.88)" }} />
+        <img src={VILLA_BG} alt="Orlando villa lifestyle" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-[#0A1628]/92" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-          {/* Outcomes list */}
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <span className="inline-block text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full"
-              style={{ background: "rgba(22,163,74,0.12)", color: "#16A34A", border: "1px solid rgba(22,163,74,0.3)" }}>
+            <span className="inline-block bg-green-500/15 text-green-400 text-sm font-semibold px-4 py-1.5 rounded-full tracking-wide uppercase">
               Owner Outcomes
             </span>
-            <h2 className="font-extrabold text-white tracking-tight leading-tight" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
-              After Using the Toolkit,<br />
-              <span className="text-gradient">You'll Know…</span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+              After Using the Toolkit,
+              <span className="text-gradient"> You'll Know…</span>
             </h2>
-            <div className="space-y-3.5">
+            <div className="space-y-4">
               {outcomes.map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: -16 }}
+                  initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
+                  transition={{ delay: i * 0.08 }}
                   className="flex items-start gap-3"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-brand-green flex-shrink-0 mt-0.5" />
-                  <p className="font-semibold text-lg" style={{ color: "rgba(255,255,255,0.88)" }}>{item}</p>
+                  <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-white/90 text-lg">{item}</p>
                 </motion.div>
               ))}
             </div>
@@ -58,45 +56,56 @@ export default function OwnerOutcomes() {
 
           {/* Before / After card */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl overflow-hidden border"
-            style={{ background: "rgba(8,29,58,0.7)", backdropFilter: "blur(16px)", borderColor: "rgba(33,102,243,0.3)", boxShadow: "0 40px 100px rgba(8,29,58,0.5)" }}
+            className="bg-card/80 backdrop-blur-sm border border-border rounded-2xl overflow-hidden shadow-2xl"
           >
-            <div className="px-6 py-5 border-b" style={{ borderColor: "rgba(33,102,243,0.2)" }}>
-              <h3 className="font-extrabold text-white text-xl">Real Owner Results</h3>
-              <p className="font-medium text-sm mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Davenport, FL — 5-bed villa</p>
+            <div className="p-6 border-b border-border">
+              <h3 className="font-display font-bold text-white text-xl">Real Owner Results</h3>
+              <p className="text-muted-foreground text-sm mt-1">Davenport, FL — 5-bed villa</p>
             </div>
-
             <div className="grid grid-cols-2">
-              <div className="p-6 border-r" style={{ borderColor: "rgba(33,102,243,0.2)" }}>
-                <p className="text-xs font-extrabold uppercase tracking-wider mb-4" style={{ color: "#ef4444" }}>Before</p>
-                <div className="space-y-4">
-                  {[["$18,200", "Annual net income"], ["22 wks", "Occupancy"], ["40%", "Manager commission"]].map(([v, l]) => (
-                    <div key={l}>
-                      <p className="text-2xl font-extrabold" style={{ color: "#ef4444" }}>{v}</p>
-                      <p className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.45)" }}>{l}</p>
-                    </div>
-                  ))}
+              {/* Before */}
+              <div className="p-6 border-r border-border">
+                <p className="text-xs font-semibold text-red-400 uppercase tracking-wider mb-3">Before</p>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-2xl font-bold text-red-400">$18,200</p>
+                    <p className="text-xs text-muted-foreground">Annual net income</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-red-400">22 wks</p>
+                    <p className="text-xs text-muted-foreground">Occupancy</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-red-400">40%</p>
+                    <p className="text-xs text-muted-foreground">Manager commission</p>
+                  </div>
                 </div>
               </div>
-              <div className="p-6" style={{ background: "rgba(22,163,74,0.06)" }}>
-                <p className="text-xs font-extrabold uppercase tracking-wider mb-4 text-brand-green">After 6 Months</p>
-                <div className="space-y-4">
-                  {[["$34,600", "Annual net income"], ["36 wks", "Occupancy"], ["15%", "Direct booking fee"]].map(([v, l]) => (
-                    <div key={l}>
-                      <p className="text-2xl font-extrabold text-brand-green">{v}</p>
-                      <p className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.45)" }}>{l}</p>
-                    </div>
-                  ))}
+              {/* After */}
+              <div className="p-6 bg-primary/5">
+                <p className="text-xs font-semibold text-green-400 uppercase tracking-wider mb-3">After 6 Months</p>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-2xl font-bold text-green-400">$34,600</p>
+                    <p className="text-xs text-muted-foreground">Annual net income</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-green-400">36 wks</p>
+                    <p className="text-xs text-muted-foreground">Occupancy</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-green-400">15%</p>
+                    <p className="text-xs text-muted-foreground">Direct booking fee</p>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div className="px-6 py-4 flex items-center justify-center gap-2" style={{ background: "rgba(22,163,74,0.12)", borderTop: "1px solid rgba(22,163,74,0.2)" }}>
-              <ArrowRight className="w-5 h-5 text-brand-green" />
-              <span className="font-extrabold text-brand-green text-lg">+90% net income increase</span>
+            <div className="p-4 bg-primary/10 flex items-center justify-center gap-2">
+              <ArrowRight className="w-5 h-5 text-primary" />
+              <span className="font-bold text-primary text-lg">+90% net income increase</span>
             </div>
           </motion.div>
         </div>

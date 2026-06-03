@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -25,20 +25,22 @@ const testimonials = [
 
 export default function TestimonialSection() {
   return (
-    <section className="relative py-20 lg:py-28" style={{ background: "#EEF4FB" }}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 lg:py-28">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
+      
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <span className="inline-block text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
-            style={{ background: "rgba(33,102,243,0.10)", color: "#2166F3", border: "1px solid rgba(33,102,243,0.2)" }}>
+          <span className="inline-block bg-primary/15 text-primary text-sm font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide uppercase">
             Owner Stories
           </span>
-          <h2 className="font-extrabold tracking-tight text-navy" style={{ fontSize: "clamp(1.9rem, 3.8vw, 3rem)" }}>
-            Owners Who Took <span className="text-gradient">Action</span>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+            Owners Who Took
+            <span className="text-gradient"> Action</span>
           </h2>
         </motion.div>
 
@@ -46,22 +48,21 @@ export default function TestimonialSection() {
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-2xl p-6 border border-slate-200 card-shadow"
+              className="bg-card/70 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/30 transition-all"
             >
-              <div className="flex items-center gap-1 mb-4">
+              <Quote className="w-8 h-8 text-primary/30 mb-4" />
+              <p className="text-white/90 text-sm leading-relaxed mb-6">"{t.text}"</p>
+              <div className="flex items-center gap-1 mb-3">
                 {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-brand-yellow text-brand-yellow" />
+                  <Star key={j} className="w-4 h-4 text-primary fill-primary" />
                 ))}
               </div>
-              <p className="font-semibold text-sm leading-relaxed mb-6" style={{ color: "#3a506b" }}>"{t.text}"</p>
-              <div className="border-t border-slate-100 pt-4">
-                <p className="font-extrabold text-navy text-sm">{t.name}</p>
-                <p className="font-medium text-xs mt-0.5" style={{ color: "#2166F3" }}>{t.location}</p>
-              </div>
+              <p className="font-display font-bold text-white text-sm">{t.name}</p>
+              <p className="text-muted-foreground text-xs">{t.location}</p>
             </motion.div>
           ))}
         </div>
