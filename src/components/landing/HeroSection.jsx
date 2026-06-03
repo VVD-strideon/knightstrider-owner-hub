@@ -33,7 +33,7 @@ export default function HeroSection({ onDownload }) {
           <img
             src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/e5e48228c_Knightstridervillaslanscapewhite1920x1080px1920x1080pxLogo.png"
             alt="Knightstrider Villas Direct"
-            className="h-16 sm:h-20 w-auto object-contain"
+            className="h-24 sm:h-32 w-auto object-contain"
           />
         </motion.div>
 
