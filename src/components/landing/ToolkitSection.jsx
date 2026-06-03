@@ -59,7 +59,7 @@ export default function ToolkitSection({ onDownload }) {
                 <span className="text-[#0a1628] text-3xl sm:text-4xl block">OWNER TOOLKIT</span>
               </h2>
               <p className="text-gray-600 mt-3 leading-relaxed">
-                A complete collection of 9 expert tools &amp; guides designed specifically for Orlando villa owners.
+                A complete collection of 9 expert tools &amp; guides designed specifically for Orlando villa owners looking for short term rental bookings.
               </p>
             </div>
 
