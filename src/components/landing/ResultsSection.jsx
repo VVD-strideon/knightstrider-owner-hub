@@ -127,7 +127,7 @@ export default function ResultsSection() {
             {/* Right: full-bleed photo */}
             <div className="relative min-h-[280px] lg:min-h-0">
               <img
-                src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/bb1c842f3_image.png"
+                src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/6de1d82af_UntitledMediumBannerUSLandscape3.png"
                 alt="Laura G, villa owner"
                 className="absolute inset-0 w-full h-full object-cover object-top"
               />
