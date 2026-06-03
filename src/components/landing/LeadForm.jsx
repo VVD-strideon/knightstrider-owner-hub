@@ -19,6 +19,14 @@ export default function LeadForm({ id }) {
     consent: false,
   });
 
+  // Auto-fill from exit popup if user already gave email
+  React.useEffect(() => {
+    const savedEmail = localStorage.getItem("exitPopupEmail");
+    if (savedEmail && !form.email) {
+      setForm(prev => ({ ...prev, email: savedEmail }));
+    }
+  }, []);
+
   const handleChange = (field, value) => {
     setForm(prev => ({ ...prev, [field]: value }));
   };
@@ -28,6 +36,11 @@ export default function LeadForm({ id }) {
     if (!form.first_name || !form.email || !form.villa_resort || !form.address || !form.consent) return;
     
     setLoading(true);
+    
+    // Get video engagement from localStorage
+    const videoWatched = localStorage.getItem("videoWatched") === "true";
+    const watchProgress = localStorage.getItem("watchProgress") || "0";
+    
     await base44.entities.Lead.create({
       first_name: form.first_name,
       email: form.email,
@@ -40,11 +53,20 @@ export default function LeadForm({ id }) {
 
     base44.analytics.track({
       eventName: "lead_form_submitted",
-      properties: { source: "landing_page" },
+      properties: { 
+        source: "landing_page",
+        video_watched: videoWatched,
+        watch_progress: watchProgress,
+        lead_score: videoWatched ? 75 : 25,
+      },
     });
 
     setLoading(false);
-    window.location.href = "/thank-you";
+    
+    // Save email for ThankYou page display
+    localStorage.setItem("lastSubmittedEmail", form.email);
+    
+    window.location.href = `/thank-you?email=${encodeURIComponent(form.email)}&video_watched=${videoWatched}`;
   };
 
   return (

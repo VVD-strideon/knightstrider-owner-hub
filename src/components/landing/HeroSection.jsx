@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Play, Download, CheckCircle, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { base44 } from "@/api/base44Client";
 
 const HERO_BG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/39a79cad3_generated_image.png";
 const HERO_BG_MOBILE = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/39a79cad3_generated_image.png";
@@ -14,6 +15,8 @@ const bullets = [
 
 export default function HeroSection({ onDownload }) {
   const [playing, setPlaying] = useState(false);
+  const [videoWatched, setVideoWatched] = useState(false);
+  const [watchProgress, setWatchProgress] = useState(0);
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -109,11 +112,28 @@ export default function HeroSection({ onDownload }) {
           ) : (
             <div className="aspect-video">
               <iframe
-                src="https://www.youtube.com/embed/O_kYqax63B4?autoplay=1&rel=0"
+                src="https://www.youtube.com/embed/O_kYqax63B4?autoplay=1&rel=0&enablejsapi=1"
                 title="7 Things They Don't Tell You About Owning an Orlando Villa"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full"
+                id="youtube-video"
+                onLoad={() => {
+                  // Track video start
+                  base44.analytics.track({
+                    eventName: "video_started",
+                    properties: { video_id: "O_kYqax63B4", source: "hero_section" },
+                  });
+                  localStorage.setItem("videoStarted", "true");
+                }}
+                onEnded={() => {
+                  // Track video completed
+                  base44.analytics.track({
+                    eventName: "video_completed",
+                    properties: { video_id: "O_kYqax63B4", source: "hero_section" },
+                  });
+                  localStorage.setItem("videoWatched", "true");
+                }}
               />
             </div>
           )}

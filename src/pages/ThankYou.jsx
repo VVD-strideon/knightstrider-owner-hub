@@ -1,23 +1,51 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, Download, Mail, ArrowLeft } from "lucide-react";
+import { CheckCircle2, Download, Mail, ArrowLeft, PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { base44 } from "@/api/base44Client";
 
 export default function ThankYou() {
+  const [userEmail, setUserEmail] = useState("");
+  const [videoWatched, setVideoWatched] = useState(false);
+
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get("email") || localStorage.getItem("lastSubmittedEmail");
+    const watched = params.get("video_watched") === "true" || localStorage.getItem("videoWatched") === "true";
+    
+    if (email) setUserEmail(email);
+    setVideoWatched(watched);
+
     base44.analytics.track({
       eventName: "thank_you_page_viewed",
-      properties: { source: "lead_form_conversion" },
+      properties: { 
+        source: "lead_form_conversion",
+        video_watched: watched,
+        user_email: email,
+      },
     });
   }, []);
 
   const handleDownload = () => {
     base44.analytics.track({
-      eventName: "toolkit_download_started",
-      properties: { source: "thank_you_page" },
+      eventName: "toolkit_downloaded",
+      properties: { 
+        source: "thank_you_page",
+        email: userEmail,
+        video_watched: videoWatched,
+      },
     });
     window.open("https://knightstrider.com/toolkit", "_blank");
+    
+    // Track as conversion
+    base44.analytics.track({
+      eventName: "conversion_completed",
+      properties: {
+        conversion_type: "toolkit_download",
+        email: userEmail,
+        lead_score: videoWatched ? 100 : 50,
+      },
+    });
   };
 
   return (
@@ -64,13 +92,36 @@ export default function ThankYou() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="flex items-center justify-center gap-3 text-muted-foreground mb-8"
+          className="bg-white/5 border border-white/10 rounded-xl p-4 mb-8"
         >
-          <Mail className="w-6 h-6 text-accent" />
-          <span className="text-base">
-            Can't find the email? Check your <strong className="text-white">spam folder</strong>
-          </span>
+          <div className="flex items-start gap-3">
+            <Mail className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+            <div className="text-left">
+              <p className="text-white font-semibold text-sm">Toolkit sent to your inbox</p>
+              {userEmail && (
+                <p className="text-white/70 text-xs mt-1">
+                  Check <strong className="text-white">{userEmail}</strong> (and spam folder)
+                </p>
+              )}
+              <p className="text-white/50 text-xs mt-2">
+                Didn't receive it? <button onClick={() => window.location.reload()} className="text-primary hover:underline">Resend</button>
+              </p>
+            </div>
+          </div>
         </motion.div>
+
+        {/* Video Engagement Badge */}
+        {videoWatched && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6 }}
+            className="inline-flex items-center gap-2 bg-green-500/15 border border-green-500/30 rounded-full px-4 py-2 mb-6"
+          >
+            <PlayCircle className="w-4 h-4 text-green-400" />
+            <span className="text-green-300 text-xs font-semibold">Video Watched ✓</span>
+          </motion.div>
+        )}
 
         {/* Trust Badges */}
         <motion.div

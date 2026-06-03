@@ -86,6 +86,9 @@ export default function ExitIntentPopup({ onDownload }) {
         properties: { email: email },
       });
 
+      // Save email to localStorage for auto-fill
+      localStorage.setItem("exitPopupEmail", email);
+
       setSubmitted(true);
     } catch (error) {
       console.error("Error saving lead:", error);
