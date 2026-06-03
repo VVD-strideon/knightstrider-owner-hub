@@ -12,18 +12,12 @@ Deno.serve(async (req) => {
       throw new Error('RESEND_API_KEY not configured');
     }
 
-    // Determine segment based on lead score
-    // Create these segments in Resend dashboard first:
-    // - Hot Leads (score >= 75): Watched video + downloaded toolkit
-    // - Warm Leads (score 25-74): Downloaded toolkit only
-    // - Cold Leads (score < 25): Minimal engagement
-    const AUDIENCE_ID = Deno.env.get("RESEND_AUDIENCE_ID") || "";
-    
     // Step 1: Create or update contact in Resend with lead score attribute
+    // Contacts are saved with lead_score - use this to create segments in Resend dashboard
     const contactPayload = {
       email: email,
       first_name: first_name,
-      audience_id: AUDIENCE_ID,
+      unsubscribed: false,
       attributes: {
         lead_score: lead_score || 0,
         source: "landing_page",
@@ -39,7 +33,7 @@ Deno.serve(async (req) => {
       body: JSON.stringify(contactPayload),
     });
 
-    // 409 = contact already exists, that's OK - we'll update their score
+    // 409 = contact already exists, that's OK
     if (!contactResponse.ok && contactResponse.status !== 409) {
       const contactError = await contactResponse.json();
       console.error('Contact creation failed:', contactError);
