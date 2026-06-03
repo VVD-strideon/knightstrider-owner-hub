@@ -13,17 +13,17 @@ const benefits = [
 
 export default function SmartOwnershipBenefits() {
   return (
-    <section className="py-16 bg-gray-50 border-t border-gray-200">
+    <section className="py-12 sm:py-16 bg-gray-50 border-t border-gray-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-[#0a1628] font-extrabold text-lg tracking-widest uppercase mb-10"
+          className="text-center text-[#0a1628] font-extrabold text-sm sm:text-lg tracking-widest uppercase mb-8 sm:mb-10"
         >
           THE BENEFITS OF SMART OWNERSHIP
         </motion.p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 lg:gap-4">
           {benefits.map((b, i) => (
             <motion.div
               key={b.label}
@@ -34,11 +34,11 @@ export default function SmartOwnershipBenefits() {
               className={`flex flex-col items-center text-center gap-3 ${b.href ? "cursor-pointer group" : ""}`}
               onClick={b.href ? () => window.open(b.href, "_blank") : undefined}
             >
-              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${b.href ? "bg-orange-100 border border-orange-300 group-hover:bg-orange-500" : "bg-accent/10 border border-accent/20"}`}>
-                <b.icon className={`w-7 h-7 transition-colors ${b.href ? "text-orange-500 group-hover:text-white" : "text-accent"}`} />
+              <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center transition-all ${b.href ? "bg-orange-100 border border-orange-300 group-hover:bg-orange-500" : "bg-accent/10 border border-accent/20"}`}>
+                <b.icon className={`w-6 h-6 sm:w-7 sm:h-7 transition-colors ${b.href ? "text-orange-500 group-hover:text-white" : "text-accent"}`} />
               </div>
-              <p className={`font-extrabold text-[10px] sm:text-xs tracking-wide uppercase leading-tight transition-colors ${b.href ? "text-orange-500 group-hover:text-orange-600" : "text-[#0a1628]"}`}>{b.label}</p>
-              <p className="text-gray-500 text-xs leading-snug">{b.desc}</p>
+              <p className={`font-extrabold text-[9px] sm:text-xs tracking-wide uppercase leading-tight transition-colors ${b.href ? "text-orange-500 group-hover:text-orange-600" : "text-[#0a1628]"}`}>{b.label}</p>
+              <p className="text-gray-500 text-[10px] sm:text-xs leading-snug">{b.desc}</p>
             </motion.div>
           ))}
         </div>

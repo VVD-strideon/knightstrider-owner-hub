@@ -36,7 +36,7 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section id="faq" className="relative py-20 lg:py-28">
+    <section id="faq" className="relative py-12 sm:py-16 lg:py-20">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
       
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,12 +44,12 @@ export default function FAQSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-10 lg:mb-12"
         >
-          <span className="inline-block bg-accent/15 text-accent text-sm font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide uppercase">
+          <span className="inline-block bg-accent/15 text-accent text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-3 sm:mb-4 tracking-wide uppercase">
             Questions?
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">
             Frequently Asked Questions
           </h2>
         </motion.div>
@@ -59,17 +59,17 @@ export default function FAQSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <Accordion type="single" collapsible className="space-y-3">
+          <Accordion type="single" collapsible className="space-y-2.5 sm:space-y-3">
             {faqs.map((faq, i) => (
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-xl px-6 data-[state=open]:border-primary/30"
+                className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg sm:rounded-xl px-4 sm:px-5 lg:px-6 data-[state=open]:border-primary/30"
               >
-                <AccordionTrigger className="text-white font-semibold text-left text-sm sm:text-base hover:no-underline py-5">
+                <AccordionTrigger className="text-white font-semibold text-left text-xs sm:text-sm md:text-base hover:no-underline py-4 sm:py-5">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-5">
+                <AccordionContent className="text-muted-foreground text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

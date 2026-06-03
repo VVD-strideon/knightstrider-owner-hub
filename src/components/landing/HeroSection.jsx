@@ -22,7 +22,7 @@ export default function HeroSection({ onDownload }) {
         <div className="absolute inset-0 bg-gradient-to-b from-[#050d1a]/95 via-[#071224]/90 to-[#050d1a]/98" />
       </div>
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col items-center text-center gap-8">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 flex flex-col items-center text-center gap-6 sm:gap-8">
 
         {/* Brand */}
         <motion.div
@@ -45,13 +45,13 @@ export default function HeroSection({ onDownload }) {
           transition={{ delay: 0.2 }}
         >
           <h1 className="font-display font-extrabold leading-[0.95] tracking-tight">
-            <span className="block text-white text-5xl sm:text-6xl lg:text-7xl xl:text-8xl drop-shadow-2xl">7 THINGS</span>
-            <span className="block text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl drop-shadow-2xl">THEY DON'T TELL YOU</span>
+            <span className="block text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl drop-shadow-2xl">7 THINGS</span>
+            <span className="block text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl drop-shadow-2xl">THEY DON'T TELL YOU</span>
             <span className="relative inline-block mt-2">
               <span className="absolute inset-0 bg-accent/80 -skew-x-3 rounded" />
-              <span className="relative text-white text-2xl sm:text-3xl lg:text-4xl xl:text-5xl px-3 py-1 italic font-extrabold tracking-wide drop-shadow-xl">ABOUT OWNING AN</span>
+              <span className="relative text-white text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl px-2 sm:px-3 py-1 italic font-extrabold tracking-wide drop-shadow-xl">ABOUT OWNING AN</span>
             </span>
-            <span className="block text-[hsl(25,100%,55%)] text-5xl sm:text-6xl lg:text-7xl xl:text-8xl italic drop-shadow-2xl mt-1">ORLANDO VILLA</span>
+            <span className="block text-[hsl(25,100%,55%)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl italic drop-shadow-2xl mt-1">ORLANDO VILLA</span>
           </h1>
         </motion.div>
 
@@ -113,7 +113,7 @@ export default function HeroSection({ onDownload }) {
               />
             </div>
           )}
-          <div className="bg-[#0d1b2a] p-6 sm:p-8 text-left space-y-5">
+          <div className="bg-[#0d1b2a] p-4 sm:p-6 md:p-8 text-left space-y-4 sm:space-y-5">
           {/* Badge */}
           <span className="inline-flex items-center gap-2 bg-[#1a2a3a] border border-white/20 rounded-full px-4 py-1.5 text-white/80 text-xs font-bold uppercase tracking-widest">
             <Play className="w-3 h-3 fill-primary text-primary" />
@@ -121,7 +121,7 @@ export default function HeroSection({ onDownload }) {
           </span>
 
           {/* Headline */}
-          <h2 className="font-display font-extrabold text-white text-2xl sm:text-3xl leading-tight">
+          <h2 className="font-display font-extrabold text-white text-xl sm:text-2xl md:text-3xl leading-tight">
             The Webinar UK Orlando Owners Are Calling{" "}
             <span className="text-primary">"A Wake-Up Call"</span>
           </h2>
@@ -152,9 +152,9 @@ export default function HeroSection({ onDownload }) {
             <button
               onClick={onDownload}
               data-event="toolkit_download_started"
-              className="w-full bg-primary hover:bg-primary/90 text-white font-extrabold text-lg uppercase tracking-widest px-8 py-5 rounded-2xl glow-orange transition-all hover:scale-[1.01] shadow-xl flex items-center justify-center gap-3"
+              className="w-full bg-primary hover:bg-primary/90 text-white font-extrabold text-base sm:text-lg uppercase tracking-widest px-6 sm:px-8 py-4 sm:py-5 rounded-xl sm:rounded-2xl glow-orange transition-all hover:scale-[1.01] shadow-xl flex items-center justify-center gap-2 sm:gap-3"
             >
-              <Download className="w-5 h-5" />
+              <Download className="w-4 h-4 sm:w-5 sm:h-5" />
               DOWNLOAD YOUR FREE TOOLKIT NOW
             </button>
             <div className="flex items-center justify-center gap-4 text-white/60 text-xs font-semibold">

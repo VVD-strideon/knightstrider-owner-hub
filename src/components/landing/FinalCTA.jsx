@@ -5,19 +5,19 @@ import { Button } from "@/components/ui/button";
 
 export default function FinalCTA({ onDownload }) {
   return (
-    <section className="bg-[#071828] border-t border-white/10 py-14 lg:py-20">
+    <section className="bg-[#071828] border-t border-white/10 py-12 sm:py-14 lg:py-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="space-y-6"
+          className="space-y-5 sm:space-y-6"
         >
-          <h2 className="font-display font-extrabold text-white text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight uppercase">
+          <h2 className="font-display font-extrabold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight tracking-tight uppercase">
             READY TO TAKE CONTROL OF YOUR
             <span className="text-primary"> VILLA SUCCESS?</span>
           </h2>
-          <p className="text-white/65 text-base sm:text-lg max-w-xl mx-auto">
+          <p className="text-white/65 text-sm sm:text-base md:text-lg max-w-xl mx-auto">
             Download your FREE Toolkit now and start making smarter decisions today.
           </p>
 
@@ -25,9 +25,9 @@ export default function FinalCTA({ onDownload }) {
             size="lg"
             onClick={onDownload}
             data-event="toolkit_download_started"
-            className="bg-primary hover:bg-primary/90 text-white font-extrabold text-lg px-10 py-7 rounded-xl uppercase tracking-wide glow-orange transition-all hover:scale-[1.02] shadow-xl"
+            className="bg-primary hover:bg-primary/90 text-white font-extrabold text-base sm:text-lg px-8 sm:px-10 py-5 sm:py-7 rounded-xl uppercase tracking-wide glow-orange transition-all hover:scale-[1.02] shadow-xl"
           >
-            <Download className="w-5 h-5 mr-2" />
+            <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
             DOWNLOAD YOUR FREE TOOLKIT NOW
           </Button>
 

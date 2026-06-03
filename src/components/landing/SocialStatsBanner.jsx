@@ -12,18 +12,18 @@ const stats = [
 
 export default function SocialStatsBanner() {
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-slate-100 px-6 py-8">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 text-center">
+    <div className="bg-white rounded-2xl shadow-sm border border-slate-100 px-4 sm:px-6 py-6 sm:py-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-6 text-center">
         {stats.map((s, i) => (
-          <div key={i} className="flex flex-col items-center gap-2">
-            {s.icon}
-            <div className="text-xl sm:text-2xl font-black text-slate-900">{s.value}</div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-800">{s.label}</div>
-            <div className="text-xs text-slate-400">{s.sub}</div>
+          <div key={i} className="flex flex-col items-center gap-1.5 sm:gap-2">
+            {React.cloneElement(s.icon, { className: "w-5 h-5 sm:w-6 sm:h-6" + (s.icon.props.className || "") })}
+            <div className="text-lg sm:text-xl md:text-2xl font-black text-slate-900">{s.value}</div>
+            <div className="text-[10px] sm:text-xs md:text-sm font-semibold text-slate-800">{s.label}</div>
+            <div className="text-[9px] sm:text-xs text-slate-400">{s.sub}</div>
           </div>
         ))}
       </div>
-      <p className="mt-6 text-center text-xs font-black uppercase tracking-widest text-slate-500">
+      <p className="mt-4 sm:mt-6 text-center text-[10px] sm:text-xs font-black uppercase tracking-widest text-slate-500">
         Trusted by the Knightstrider Community
       </p>
     </div>

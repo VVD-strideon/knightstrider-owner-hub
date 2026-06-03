@@ -19,12 +19,12 @@ const checks = [
 
 export default function ResultsSection() {
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-b from-[#e8f0fb] via-[#f0f6ff] to-[#e6f0fa]">
+    <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-gradient-to-b from-[#e8f0fb] via-[#f0f6ff] to-[#e6f0fa]">
       {/* Subtle uplight glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-48 bg-blue-300/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-32 bg-blue-200/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div className="relative z-10 max-w-5xl mx-auto px-3 sm:px-4 lg:px-8 space-y-6 sm:space-y-8">
 
         {/* Results table card */}
         <motion.div
@@ -33,20 +33,20 @@ export default function ResultsSection() {
           viewport={{ once: true }}
           className="bg-white rounded-2xl shadow-xl overflow-hidden border border-blue-100"
         >
-          <div className="p-6 text-center border-b border-gray-100">
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-[#1a56db]">
+          <div className="p-4 sm:p-6 text-center border-b border-gray-100">
+            <h2 className="font-display font-extrabold text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#1a56db]">
               Real results. Better control. More profit.
             </h2>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full min-w-[600px]">
               <thead>
                 <tr className="border-b border-gray-100">
-                  <th className="text-left px-6 py-3 w-1/2"></th>
-                  <th className="px-4 py-3 text-[#6b7280] font-extrabold text-xs uppercase tracking-widest text-center">BEFORE</th>
-                  <th className="px-3 py-3 w-8"></th>
-                  <th className="px-4 py-3 text-green-600 font-extrabold text-xs uppercase tracking-widest text-center">AFTER</th>
+                  <th className="text-left px-3 sm:px-4 lg:px-6 py-3 w-1/2"></th>
+                  <th className="px-3 sm:px-4 py-2.5 text-[#6b7280] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest text-center">BEFORE</th>
+                  <th className="px-1 sm:px-2 py-3 w-8"></th>
+                  <th className="px-3 sm:px-4 py-2.5 text-green-600 font-extrabold text-[10px] sm:text-xs uppercase tracking-widest text-center">AFTER</th>
                 </tr>
               </thead>
               <tbody>
@@ -54,24 +54,24 @@ export default function ResultsSection() {
                   const Icon = row.icon;
                   return (
                     <tr key={row.metric} className={`border-b border-gray-50 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}>
-                      <td className="px-6 py-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-9 h-9 rounded-full bg-[#1a56db] flex items-center justify-center flex-shrink-0">
-                            <Icon className="w-4 h-4 text-white" />
+                      <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#1a56db] flex items-center justify-center flex-shrink-0">
+                            <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
                           </div>
-                          <span className="text-[#111827] font-semibold text-sm sm:text-base">{row.metric}</span>
+                          <span className="text-[#111827] font-semibold text-xs sm:text-sm md:text-base">{row.metric}</span>
                         </div>
                       </td>
-                      <td className="px-4 py-4 text-center">
-                        <p className="text-[#111827] font-bold text-lg">{row.before}</p>
-                        {row.beforeSub && <p className="text-gray-400 text-xs">{row.beforeSub}</p>}
+                      <td className="px-3 sm:px-4 py-3 sm:py-4 text-center">
+                        <p className="text-[#111827] font-bold text-base sm:text-lg">{row.before}</p>
+                        {row.beforeSub && <p className="text-gray-400 text-[10px] sm:text-xs">{row.beforeSub}</p>}
                       </td>
-                      <td className="px-2 py-4 text-center">
-                        <ArrowRight className="w-4 h-4 text-blue-300 mx-auto" />
+                      <td className="px-1 sm:px-2 py-3 sm:py-4 text-center">
+                        <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-300 mx-auto" />
                       </td>
-                      <td className="px-4 py-4 text-center">
-                        <p className="text-green-600 font-extrabold text-lg">{row.after}</p>
-                        {row.afterSub && <p className="text-gray-400 text-xs">{row.afterSub}</p>}
+                      <td className="px-3 sm:px-4 py-3 sm:py-4 text-center">
+                        <p className="text-green-600 font-extrabold text-base sm:text-lg">{row.after}</p>
+                        {row.afterSub && <p className="text-gray-400 text-[10px] sm:text-xs">{row.afterSub}</p>}
                       </td>
                     </tr>
                   );
@@ -89,43 +89,43 @@ export default function ResultsSection() {
           transition={{ delay: 0.15 }}
           className="rounded-2xl shadow-xl border border-blue-100 overflow-hidden"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] min-h-[320px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] min-h-[auto] lg:min-h-[320px]">
             {/* Left: content panel */}
-            <div className="bg-white px-8 py-10 flex flex-col justify-center space-y-5">
-              <h3 className="font-extrabold leading-tight" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+            <div className="bg-white px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 flex flex-col justify-center space-y-4 sm:space-y-5">
+              <h3 className="font-extrabold leading-tight" style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)" }}>
                 <span className="text-[#1a56db]">12</span>{" "}
                 <span className="text-[#0a1628]">ENQUIRIES</span>
                 <br />
                 <span className="text-[#0a1628]">IN 24 HOURS</span>
               </h3>
 
-              <p className="text-[#374151] text-sm sm:text-base">
+              <p className="text-[#374151] text-xs sm:text-sm md:text-base">
                 We are 50% booked for 2027 all from <strong>Knightstrider Villas</strong>.
               </p>
 
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
+                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-amber-400" />
                 ))}
               </div>
 
               <div>
-                <p className="font-bold text-[#111827] text-sm">
+                <p className="font-bold text-[#111827] text-xs sm:text-sm">
                   Laura G,{" "}
                   <span className="font-normal">Project Pixiedust Villa Owner</span>
                 </p>
-                <p className="text-[#1a56db] text-xs font-bold mt-0.5 uppercase tracking-wide">
+                <p className="text-[#1a56db] text-[10px] sm:text-xs font-bold mt-0.5 uppercase tracking-wide">
                   DBPR License: DWE5921586
                 </p>
               </div>
 
-              <button className="self-start bg-[#ff6600] hover:bg-[#e55a00] text-white font-extrabold text-sm uppercase tracking-widest px-7 py-3 rounded-lg transition-all shadow-md">
+              <button className="self-start bg-[#ff6600] hover:bg-[#e55a00] text-white font-extrabold text-xs sm:text-sm uppercase tracking-widest px-5 sm:px-6 lg:px-7 py-2.5 sm:py-3 rounded-lg transition-all shadow-md">
                 See How Your Villa Performs &nbsp;→
               </button>
             </div>
 
             {/* Right: full-bleed photo */}
-            <div className="relative min-h-[240px] lg:min-h-0">
+            <div className="relative min-h-[200px] sm:min-h-[240px] lg:min-h-0">
               <img
                 src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/6de1d82af_UntitledMediumBannerUSLandscape3.png"
                 alt="Laura G, villa owner"

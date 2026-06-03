@@ -48,7 +48,7 @@ export default function LeadForm({ id }) {
   };
 
   return (
-    <section id={id} className="relative py-20 lg:py-28">
+    <section id={id} className="relative py-12 sm:py-16 lg:py-20">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
       
       <div className="relative z-10 max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,11 +61,11 @@ export default function LeadForm({ id }) {
               exit={{ opacity: 0, y: -20 }}
               className="bg-card/80 backdrop-blur-sm border border-border rounded-2xl p-8 shadow-2xl"
             >
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/15 rounded-2xl mb-4">
-                  <Download className="w-8 h-8 text-primary" />
+              <div className="text-center mb-6 sm:mb-8">
+                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-primary/15 rounded-2xl mb-3 sm:mb-4">
+                  <Download className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
                 </div>
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-2">
+                <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">
                   Get Your Free Toolkit
                 </h2>
                 <p className="text-muted-foreground text-sm">
@@ -73,9 +73,9 @@ export default function LeadForm({ id }) {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                 <div>
-                  <Label htmlFor="first_name" className="text-white text-sm mb-1.5 block">
+                  <Label htmlFor="first_name" className="text-white text-xs sm:text-sm mb-1.5 block">
                     First Name <span className="text-primary">*</span>
                   </Label>
                   <Input
@@ -84,11 +84,11 @@ export default function LeadForm({ id }) {
                     value={form.first_name}
                     onChange={(e) => handleChange("first_name", e.target.value)}
                     required
-                    className="bg-muted/50 border-border/60 text-white placeholder:text-muted-foreground/60 h-12"
+                    className="bg-muted/50 border-border/60 text-white placeholder:text-muted-foreground/60 h-11 sm:h-12 text-base"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="email" className="text-white text-sm mb-1.5 block">
+                  <Label htmlFor="email" className="text-white text-xs sm:text-sm mb-1.5 block">
                     Email Address <span className="text-primary">*</span>
                   </Label>
                   <Input
@@ -98,11 +98,11 @@ export default function LeadForm({ id }) {
                     value={form.email}
                     onChange={(e) => handleChange("email", e.target.value)}
                     required
-                    className="bg-muted/50 border-border/60 text-white placeholder:text-muted-foreground/60 h-12"
+                    className="bg-muted/50 border-border/60 text-white placeholder:text-muted-foreground/60 h-11 sm:h-12 text-base"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="phone" className="text-white text-sm mb-1.5 block">
+                  <Label htmlFor="phone" className="text-white text-xs sm:text-sm mb-1.5 block">
                     Phone <span className="text-muted-foreground">(optional)</span>
                   </Label>
                   <Input
@@ -111,11 +111,11 @@ export default function LeadForm({ id }) {
                     placeholder="+1 (555) 000-0000"
                     value={form.phone}
                     onChange={(e) => handleChange("phone", e.target.value)}
-                    className="bg-muted/50 border-border/60 text-white placeholder:text-muted-foreground/60 h-12"
+                    className="bg-muted/50 border-border/60 text-white placeholder:text-muted-foreground/60 h-11 sm:h-12 text-base"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="villa" className="text-white text-sm mb-1.5 block">
+                  <Label htmlFor="villa" className="text-white text-xs sm:text-sm mb-1.5 block">
                     Resort Name <span className="text-primary">*</span>
                     <span className="text-muted-foreground font-normal"> (type N/A if not applicable)</span>
                   </Label>
@@ -125,11 +125,11 @@ export default function LeadForm({ id }) {
                     value={form.villa_resort}
                     onChange={(e) => handleChange("villa_resort", e.target.value)}
                     required
-                    className="bg-muted/50 border-border/60 text-white placeholder:text-muted-foreground/60 h-12"
+                    className="bg-muted/50 border-border/60 text-white placeholder:text-muted-foreground/60 h-11 sm:h-12 text-base"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="address" className="text-white text-sm mb-1.5 block">
+                  <Label htmlFor="address" className="text-white text-xs sm:text-sm mb-1.5 block">
                     Villa Address (first line) <span className="text-primary">*</span>
                   </Label>
                   <Input
@@ -138,7 +138,7 @@ export default function LeadForm({ id }) {
                     value={form.address}
                     onChange={(e) => handleChange("address", e.target.value)}
                     required
-                    className="bg-muted/50 border-border/60 text-white placeholder:text-muted-foreground/60 h-12"
+                    className="bg-muted/50 border-border/60 text-white placeholder:text-muted-foreground/60 h-11 sm:h-12 text-base"
                   />
                 </div>
 
@@ -160,12 +160,12 @@ export default function LeadForm({ id }) {
                   size="lg"
                   disabled={loading || !form.first_name || !form.email || !form.villa_resort || !form.address || !form.consent}
                   data-event="toolkit_download_started"
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-bold text-lg py-6 rounded-xl glow-orange transition-all hover:scale-[1.01] disabled:opacity-50"
+                  className="w-full bg-primary hover:bg-primary/90 text-white font-bold text-base sm:text-lg py-5 sm:py-6 rounded-xl glow-orange transition-all hover:scale-[1.01] disabled:opacity-50"
                 >
                   {loading ? (
-                    <Loader2 className="w-5 h-5 animate-spin mr-2" />
+                    <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin mr-2" />
                   ) : (
-                    <Download className="w-5 h-5 mr-2" />
+                    <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                   )}
                   {loading ? "Sending…" : "Download Your Free Owner Toolkit"}
                 </Button>
