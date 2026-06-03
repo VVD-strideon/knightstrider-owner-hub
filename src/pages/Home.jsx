@@ -7,6 +7,7 @@ import SmartOwnershipBenefits from "@/components/landing/SmartOwnershipBenefits"
 import ResultsSection from "@/components/landing/ResultsSection";
 import LeadForm from "@/components/landing/LeadForm";
 import FAQSection from "@/components/landing/FAQSection";
+import VillaPerformanceSection from "@/components/landing/VillaPerformanceSection";
 import FinalCTA from "@/components/landing/FinalCTA";
 import Footer from "@/components/landing/Footer";
 import { base44 } from "@/api/base44Client";
@@ -29,6 +30,7 @@ export default function Home() {
       <ToolkitSection onDownload={scrollToForm} />
       <SmartOwnershipBenefits />
       <ResultsSection />
+      <VillaPerformanceSection onDownload={scrollToForm} />
       <LeadForm id="lead-form" />
       <FAQSection />
       <FinalCTA onDownload={scrollToForm} />
