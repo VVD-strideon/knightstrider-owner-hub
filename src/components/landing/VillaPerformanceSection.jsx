@@ -4,22 +4,22 @@ import { CheckCircle, Eye, Search, Users, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const bullets = [
-  { title: "0% Commission", sub: "Keep 100% of your revenue." },
-  { title: "Direct Enquiries", sub: "No middlemen. No extra fees." },
-  { title: "You Stay in Control", sub: "Decide rates, rules & availability." },
-  { title: "Owner Direct Bookings Only", sub: "Real guests. Real enquiries." },
-];
+{ title: "0% Commission", sub: "Keep 100% of your revenue." },
+{ title: "Direct Enquiries", sub: "No middlemen. No extra fees." },
+{ title: "You Stay in Control", sub: "Decide rates, rules & availability." },
+{ title: "Owner Direct Bookings Only", sub: "Real guests. Real enquiries." }];
+
 
 const scores = [
-  { icon: Eye, label: "Photo Score", value: 85, color: "text-green-500" },
-  { icon: Search, label: "SEO Score", value: 42, color: "text-orange-500" },
-  { icon: Users, label: "Social Ready", value: 57, color: "text-orange-400" },
-  { icon: ClipboardList, label: "Listing Complete", value: 78, color: "text-blue-500", suffix: "%" },
-];
+{ icon: Eye, label: "Photo Score", value: 85, color: "text-green-500" },
+{ icon: Search, label: "SEO Score", value: 42, color: "text-orange-500" },
+{ icon: Users, label: "Social Ready", value: 57, color: "text-orange-400" },
+{ icon: ClipboardList, label: "Listing Complete", value: 78, color: "text-blue-500", suffix: "%" }];
+
 
 export default function VillaPerformanceSection({ onDownload }) {
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-br from-[#e8f4ff] via-[#f0f8ff] to-[#ddeeff]">
+    <section className="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-br from-[#e8f4ff] via-[#f0f8ff] to-[#ddeeff] hidden">
       {/* Decorative blobs */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl pointer-events-none" />
@@ -32,8 +32,8 @@ export default function VillaPerformanceSection({ onDownload }) {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
-          >
+            className="space-y-6">
+            
             <div>
               <span className="inline-block border border-[#1a56db] text-[#1a56db] text-xs font-bold uppercase tracking-widest rounded-full px-4 py-1.5 mb-4">
                 Exclusive for Orlando Villa Owners
@@ -48,23 +48,23 @@ export default function VillaPerformanceSection({ onDownload }) {
             </div>
 
             <ul className="space-y-4">
-              {bullets.map((b) => (
-                <li key={b.title} className="flex items-start gap-3">
+              {bullets.map((b) =>
+              <li key={b.title} className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold text-[#0a1628] text-sm sm:text-base">{b.title}</p>
                     <p className="text-gray-500 text-sm">{b.sub}</p>
                   </div>
                 </li>
-              ))}
+              )}
             </ul>
 
             <div className="flex items-end gap-4">
               <img
                 src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/847b16f51_image.png"
                 alt="Villa Expert"
-                className="w-20 h-20 rounded-xl object-cover object-top shadow-md flex-shrink-0"
-              />
+                className="w-20 h-20 rounded-xl object-cover object-top shadow-md flex-shrink-0" />
+              
               <div>
                 <p className="text-[#1a56db] font-bold italic text-base leading-tight">
                   More enquiries.<br />More bookings.<br />More profit.
@@ -75,8 +75,8 @@ export default function VillaPerformanceSection({ onDownload }) {
             <Button
               size="lg"
               onClick={onDownload}
-              className="bg-primary hover:bg-primary/90 text-white font-extrabold text-base px-8 py-6 rounded-xl uppercase tracking-wide glow-orange transition-all hover:scale-[1.02] shadow-lg"
-            >
+              className="bg-primary hover:bg-primary/90 text-white font-extrabold text-base px-8 py-6 rounded-xl uppercase tracking-wide glow-orange transition-all hover:scale-[1.02] shadow-lg">
+              
               Get Your Free Villa Assessment
             </Button>
           </motion.div>
@@ -86,8 +86,8 @@ export default function VillaPerformanceSection({ onDownload }) {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative"
-          >
+            className="relative">
+            
             {/* Dashed border decoration */}
             <div className="absolute -inset-3 border-2 border-dashed border-[#1a56db]/30 rounded-3xl pointer-events-none" />
 
@@ -125,8 +125,8 @@ export default function VillaPerformanceSection({ onDownload }) {
                       <p className={`font-extrabold text-base mt-1 ${s.color}`}>
                         {s.value}{s.suffix || "/100"}
                       </p>
-                    </div>
-                  );
+                    </div>);
+
                 })}
               </div>
 
@@ -170,18 +170,18 @@ export default function VillaPerformanceSection({ onDownload }) {
               {/* Villa photos strip */}
               <div className="grid grid-cols-4 gap-1 p-3 pt-0">
                 {[
-                  "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=200&h=120&fit=crop",
-                  "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=200&h=120&fit=crop",
-                  "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=200&h=120&fit=crop",
-                  "https://images.unsplash.com/photo-1506974210756-8e1b8985d348?w=200&h=120&fit=crop",
-                ].map((src, i) => (
-                  <img key={i} src={src} alt="Villa" className="rounded-lg w-full h-14 object-cover" />
-                ))}
+                "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=200&h=120&fit=crop",
+                "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=200&h=120&fit=crop",
+                "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=200&h=120&fit=crop",
+                "https://images.unsplash.com/photo-1506974210756-8e1b8985d348?w=200&h=120&fit=crop"].
+                map((src, i) =>
+                <img key={i} src={src} alt="Villa" className="rounded-lg w-full h-14 object-cover" />
+                )}
               </div>
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
