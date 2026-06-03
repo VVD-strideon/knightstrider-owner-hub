@@ -62,10 +62,10 @@ module.exports = {
   			}
   		},
   		fontFamily: {
-  			heading: ['var(--font-heading)'],
-  			body: ['var(--font-body)'],
-  			display: ['var(--font-display)'],
-  			mono: ['var(--font-mono)']
+  			heading: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			body: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			display: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
   		},
   		keyframes: {
   			'accordion-down': {
