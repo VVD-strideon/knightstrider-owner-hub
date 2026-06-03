@@ -15,6 +15,7 @@ export default function LeadForm({ id }) {
     email: "",
     phone: "",
     villa_resort: "",
+    address: "",
     consent: false,
   });
 
@@ -24,14 +25,15 @@ export default function LeadForm({ id }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.first_name || !form.email || !form.consent) return;
+    if (!form.first_name || !form.email || !form.villa_resort || !form.address || !form.consent) return;
     
     setLoading(true);
     await base44.entities.Lead.create({
       first_name: form.first_name,
       email: form.email,
       phone: form.phone || undefined,
-      villa_resort: form.villa_resort || undefined,
+      villa_resort: form.villa_resort,
+      address: form.address,
       consent: form.consent,
       source: "landing_page",
     });
@@ -114,13 +116,29 @@ export default function LeadForm({ id }) {
                 </div>
                 <div>
                   <Label htmlFor="villa" className="text-white text-sm mb-1.5 block">
-                    Villa / Resort Name <span className="text-muted-foreground">(optional)</span>
+                    Resort Name <span className="text-primary">*</span>
+                    <span className="text-muted-foreground font-normal"> (type N/A if not applicable)</span>
                   </Label>
                   <Input
                     id="villa"
-                    placeholder="e.g. Champions Gate, Reunion Resort"
+                    placeholder="e.g. Champions Gate, Reunion Resort, N/A"
                     value={form.villa_resort}
                     onChange={(e) => handleChange("villa_resort", e.target.value)}
+                    required
+                    className="bg-muted/50 border-border/60 text-white placeholder:text-muted-foreground/60 h-12"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="address" className="text-white text-sm mb-1.5 block">
+                    Villa Address (first line) <span className="text-primary">*</span>
+                    <span className="text-muted-foreground font-normal"> (type N/A if not applicable)</span>
+                  </Label>
+                  <Input
+                    id="address"
+                    placeholder="e.g. 123 Vacation Blvd, N/A"
+                    value={form.address}
+                    onChange={(e) => handleChange("address", e.target.value)}
+                    required
                     className="bg-muted/50 border-border/60 text-white placeholder:text-muted-foreground/60 h-12"
                   />
                 </div>
@@ -141,7 +159,7 @@ export default function LeadForm({ id }) {
                 <Button
                   type="submit"
                   size="lg"
-                  disabled={loading || !form.first_name || !form.email || !form.consent}
+                  disabled={loading || !form.first_name || !form.email || !form.villa_resort || !form.address || !form.consent}
                   data-event="toolkit_download_started"
                   className="w-full bg-primary hover:bg-primary/90 text-white font-bold text-lg py-6 rounded-xl glow-orange transition-all hover:scale-[1.01] disabled:opacity-50"
                 >
@@ -182,6 +200,7 @@ export default function LeadForm({ id }) {
                     eventName: "toolkit_download_started",
                     properties: { source: "success_state" },
                   });
+                  window.open("https://knightstrider.com/toolkit", "_blank");
                 }}
                 className="bg-primary hover:bg-primary/90 text-white font-bold text-lg px-10 py-6 rounded-xl glow-orange transition-all hover:scale-[1.02]"
               >

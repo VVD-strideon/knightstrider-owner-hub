@@ -17,7 +17,11 @@
     },
     "villa_resort": {
       "type": "string",
-      "description": "Villa or resort name"
+      "description": "Villa or resort name (N/A if not applicable)"
+    },
+    "address": {
+      "type": "string",
+      "description": "First line of villa address (N/A if not applicable)"
     },
     "consent": {
       "type": "boolean",
@@ -32,6 +36,8 @@
   },
   "required": [
     "first_name",
-    "email"
+    "email",
+    "villa_resort",
+    "address"
   ]
 }
