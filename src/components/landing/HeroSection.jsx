@@ -77,7 +77,7 @@ export default function HeroSection({ onDownload }) {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5 }}
-          className="w-full rounded-2xl overflow-hidden border-2 border-primary/30 glow-orange"
+          className="w-full rounded-t-2xl rounded-b-none overflow-hidden border-2 border-b-0 border-primary/30 glow-orange"
         >
           {!playing ? (
             <div className="relative aspect-video bg-[#0d1b2a] cursor-pointer group" onClick={() => setPlaying(true)}>
@@ -101,7 +101,7 @@ export default function HeroSection({ onDownload }) {
                   <p className="text-white font-bold text-sm sm:text-base">▶ 7 Things They Don't Tell You</p>
                   <p className="text-white/60 text-xs sm:text-sm">Knightstrider Villas Direct</p>
                 </div>
-                <span className="bg-black/60 text-white text-xs px-2 py-1 rounded">14:32</span>
+                
               </div>
             </div>
           ) : (
@@ -122,7 +122,7 @@ export default function HeroSection({ onDownload }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65 }}
-          className="w-full bg-[#0d1b2a] rounded-2xl border border-white/10 p-6 sm:p-8 text-left space-y-5"
+          className="w-full bg-[#0d1b2a] rounded-b-2xl rounded-t-none border-2 border-t-0 border-primary/30 p-6 sm:p-8 text-left space-y-5"
         >
           {/* Badge */}
           <span className="inline-flex items-center gap-2 bg-[#1a2a3a] border border-white/20 rounded-full px-4 py-1.5 text-white/80 text-xs font-bold uppercase tracking-widest">
