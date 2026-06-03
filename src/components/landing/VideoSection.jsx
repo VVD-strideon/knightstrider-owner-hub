@@ -20,7 +20,7 @@ export default function VideoSection({ onDownload }) {
             WATCH THE FREE VIDEO
           </h2>
           <p className="text-white/55 text-base max-w-xl mx-auto">
-            In under 15 minutes, discover the 7 critical truths every Orlando villa owner needs to know.
+            In this full 1-hour 10-minute webinar, discover the 7 critical truths every Orlando villa owner needs to know.
           </p>
         </motion.div>
 
@@ -58,7 +58,7 @@ export default function VideoSection({ onDownload }) {
                   <p className="text-white font-bold text-sm sm:text-base">▶ 7 Things They Don't Tell You</p>
                   <p className="text-white/60 text-xs sm:text-sm">Knightstrider Villas Direct</p>
                 </div>
-                <span className="bg-black/60 text-white text-xs px-2 py-1 rounded">14:32</span>
+                <span className="bg-black/60 text-white text-xs px-2 py-1 rounded">1:10:00</span>
               </div>
             </div>
           ) : (
