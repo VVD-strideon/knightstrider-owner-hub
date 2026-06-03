@@ -117,23 +117,56 @@ export default function HeroSection({ onDownload }) {
           )}
         </motion.div>
 
-        {/* Download CTA */}
+        {/* Webinar block */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65 }}
-          className="flex flex-col items-center gap-3"
+          className="w-full bg-[#0d1b2a] rounded-2xl border border-white/10 p-6 sm:p-8 text-left space-y-5"
         >
+          {/* Badge */}
+          <span className="inline-flex items-center gap-2 bg-[#1a2a3a] border border-white/20 rounded-full px-4 py-1.5 text-white/80 text-xs font-bold uppercase tracking-widest">
+            <Play className="w-3 h-3 fill-primary text-primary" />
+            On-Demand Webinar — Watch Free
+          </span>
+
+          {/* Headline */}
+          <h2 className="font-display font-extrabold text-white text-2xl sm:text-3xl leading-tight">
+            The Webinar UK Orlando Owners Are Calling{" "}
+            <span className="text-primary">"A Wake-Up Call"</span>
+          </h2>
+
+          {/* Body */}
+          <p className="text-white/60 text-sm sm:text-base leading-relaxed">
+            In this candid 50-minute panel, real UK villa owners and Orlando property experts reveal the 7 principles behind successful ownership — including the mistakes that cost owners thousands every year.
+          </p>
+
+          {/* Bullets */}
+          <ul className="space-y-3">
+            {[
+              "Why 'revenue is not profit' — and what your real numbers look like",
+              "The management company trick that costs owners 34% (not 14%)",
+              "How Mick's £8,000 Disney games room was a complete waste of money",
+              "The direct booking strategy that eliminated OTA fees entirely",
+              "What 76.7 million Orlando visitors means for your villa's potential",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3 text-white/85 text-sm sm:text-base">
+                <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA */}
           <Button
             size="lg"
             onClick={onDownload}
             data-event="toolkit_download_started"
-            className="bg-primary hover:bg-primary/90 text-white font-extrabold text-lg px-10 py-7 rounded-xl glow-orange transition-all hover:scale-[1.02] uppercase tracking-wide shadow-xl"
+            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-extrabold text-base sm:text-lg px-8 py-6 rounded-xl glow-orange transition-all hover:scale-[1.02] uppercase tracking-wide shadow-xl"
           >
-            <Download className="w-5 h-5 mr-2" />
-            DOWNLOAD FREE TOOLKIT NOW
+            Get Free Access to Watch
+            <Play className="w-4 h-4 fill-white ml-1" />
           </Button>
-          <p className="text-white/40 text-xs font-semibold">100% Free · No Spam, Ever</p>
         </motion.div>
 
       </div>
