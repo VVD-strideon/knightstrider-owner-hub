@@ -1,10 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
+  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 
 const faqs = [
@@ -36,26 +33,25 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section id="faq" className="relative py-20 lg:py-28">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
-      
-      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="relative py-20 lg:py-28 bg-white">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="inline-block bg-accent/15 text-accent text-sm font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide uppercase">
+          <span className="inline-block text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+            style={{ background: "#EEF4FB", color: "#2166F3", border: "1px solid rgba(33,102,243,0.2)" }}>
             Questions?
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">
+          <h2 className="font-extrabold tracking-tight text-navy" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)" }}>
             Frequently Asked Questions
           </h2>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
@@ -64,12 +60,12 @@ export default function FAQSection() {
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-xl px-6 data-[state=open]:border-primary/30"
+                className="bg-white rounded-2xl px-6 border border-slate-200 data-[state=open]:border-brand-blue card-shadow"
               >
-                <AccordionTrigger className="text-white font-semibold text-left text-sm sm:text-base hover:no-underline py-5">
+                <AccordionTrigger className="font-semibold text-left text-sm sm:text-base hover:no-underline py-5 text-navy">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-5">
+                <AccordionContent className="font-medium text-sm leading-relaxed pb-5" style={{ color: "#3a506b" }}>
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

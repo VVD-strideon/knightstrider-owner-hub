@@ -1,150 +1,150 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Play, Download, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Play, Download, ChevronDown, CheckCircle2 } from "lucide-react";
 
 const HERO_BG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/39a79cad3_generated_image.png";
 const HOST_IMG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/cd5c054eb_generated_image.png";
 
 export default function HeroSection({ onWatchVideo, onDownload }) {
   return (
-    <section className="relative min-h-[100vh] flex items-center overflow-hidden">
-      {/* Background */}
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-navy">
+      {/* Background image with dark overlay */}
       <div className="absolute inset-0">
         <img src={HERO_BG} alt="Luxury Orlando villa" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/95 via-[#0A1628]/85 to-[#0A1628]/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-[#0A1628]/40" />
+        <div className="absolute inset-0" style={{ background: "rgba(8,29,58,0.72)" }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-navy/40" />
       </div>
 
-      {/* Palm leaf accent */}
-      <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
-        <svg viewBox="0 0 200 200" className="w-full h-full text-primary">
-          <path d="M100,10 Q130,50 180,30 Q150,80 190,100 Q140,110 160,170 Q110,130 100,190 Q90,130 40,170 Q60,110 10,100 Q50,80 20,30 Q70,50 100,10Z" fill="currentColor" />
-        </svg>
-      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-0">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-center">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
           {/* Left content */}
-          <div className="lg:col-span-3 space-y-6">
-            {/* Badge */}
+          <div className="lg:col-span-3 space-y-7">
+            {/* Eyebrow pill */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 rounded-full px-4 py-1.5"
+              transition={{ delay: 0.15 }}
+              className="inline-flex items-center gap-2 border rounded-full px-4 py-1.5"
+              style={{ background: "rgba(33,102,243,0.12)", borderColor: "rgba(33,102,243,0.35)" }}
             >
-              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-primary text-sm font-semibold tracking-wide uppercase">Free for Orlando Villa Owners</span>
+              <span className="w-2 h-2 rounded-full bg-brand-green animate-ping" style={{ animationDuration: "1.5s" }} />
+              <span className="text-xs font-extrabold uppercase tracking-widest text-brand-blue">Free for Orlando Villa Owners</span>
             </motion.div>
 
             {/* Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-tight"
+              transition={{ delay: 0.25 }}
+              className="font-extrabold leading-[1.04] tracking-tight text-white"
+              style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)" }}
             >
-              <span className="text-white">7 Things They</span>
-              <br />
-              <span className="text-gradient">Don't Tell You</span>
-              <br />
-              <span className="text-white">About Owning an</span>
-              <br />
-              <span className="text-accent">Orlando Villa</span>
+              7 Things They<br />
+              <span className="text-gradient">Don't Tell You</span><br />
+              About Owning an<br />
+              <span style={{ color: "#4F8EF7" }}>Orlando Villa</span>
             </motion.h1>
 
             {/* Sub */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed"
+              transition={{ delay: 0.4 }}
+              className="text-lg sm:text-xl font-semibold leading-relaxed max-w-xl"
+              style={{ color: "rgba(255,255,255,0.78)" }}
             >
-              Watch the free video & grab your <strong className="text-white">9-Tool Owner Toolkit</strong> — 
+              Watch the free video & grab your <span className="text-white font-extrabold">9-Tool Owner Toolkit</span> — 
               the same system helping villa owners earn more, stress less, and take back control.
             </motion.p>
 
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 pt-2"
-            >
-              <Button
-                size="lg"
-                onClick={onDownload}
-                data-event="toolkit_download_started"
-                className="bg-primary hover:bg-primary/90 text-white font-bold text-lg px-8 py-6 rounded-xl glow-orange transition-all hover:scale-[1.02]"
-              >
-                <Download className="w-5 h-5 mr-2" />
-                Download Free Owner Toolkit
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={onWatchVideo}
-                data-event="watch_video_clicked"
-                className="border-accent/40 text-accent hover:bg-accent/10 font-semibold text-lg px-8 py-6 rounded-xl transition-all hover:scale-[1.02]"
-              >
-                <Play className="w-5 h-5 mr-2 fill-current" />
-                Watch Free Video
-              </Button>
-            </motion.div>
-
-            {/* Trust line */}
+            {/* Value anchor */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="flex items-center gap-6 pt-4 text-sm text-muted-foreground"
+              transition={{ delay: 0.5 }}
+              className="inline-flex items-center gap-3 bg-brand-yellow/10 border border-brand-yellow/30 rounded-xl px-4 py-2.5"
             >
-              <span className="flex items-center gap-1.5">
-                <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-                100% Free
-              </span>
-              <span className="flex items-center gap-1.5">
-                <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-                No Spam, Ever
-              </span>
-              <span className="flex items-center gap-1.5">
-                <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-                Instant Access
-              </span>
+              <span className="text-brand-yellow text-xs font-extrabold uppercase tracking-widest">Combined value</span>
+              <span className="text-white/40 font-bold line-through text-sm">$643</span>
+              <span className="text-brand-yellow font-extrabold text-lg">FREE today</span>
+            </motion.div>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55 }}
+              className="flex flex-col sm:flex-row gap-4 pt-1"
+            >
+              <button
+                onClick={onDownload}
+                data-event="toolkit_download_started"
+                className="inline-flex items-center justify-center gap-2 rounded-xl font-extrabold text-lg px-8 py-4 text-white transition-all hover:scale-[1.02] glow-blue"
+                style={{ background: "#2166F3" }}
+              >
+                <Download className="w-5 h-5" />
+                Download Free Owner Toolkit
+              </button>
+              <button
+                onClick={onWatchVideo}
+                data-event="watch_video_clicked"
+                className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold text-lg px-8 py-4 text-white transition-all hover:bg-white/10 border"
+                style={{ borderColor: "rgba(79,142,247,0.5)", color: "#4F8EF7" }}
+              >
+                <Play className="w-5 h-5 fill-current" />
+                Watch Free Video
+              </button>
+            </motion.div>
+
+            {/* Trust micro-copy */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              className="flex flex-wrap items-center gap-5 pt-2"
+            >
+              {["100% Free", "No Spam, Ever", "Instant Access"].map(t => (
+                <span key={t} className="flex items-center gap-1.5 text-sm font-semibold" style={{ color: "rgba(255,255,255,0.65)" }}>
+                  <CheckCircle2 className="w-4 h-4 text-brand-green flex-shrink-0" />
+                  {t}
+                </span>
+              ))}
             </motion.div>
           </div>
 
-          {/* Right - Host image */}
+          {/* Right — host cutout */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
             className="hidden lg:flex lg:col-span-2 justify-center relative"
           >
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-t from-primary/20 via-accent/10 to-transparent rounded-full blur-3xl" />
+              <div className="absolute -inset-6 rounded-full blur-3xl opacity-40" style={{ background: "radial-gradient(circle, rgba(33,102,243,0.4) 0%, transparent 70%)" }} />
               <img
                 src={HOST_IMG}
-                alt="Villa ownership expert"
-                className="relative z-10 w-80 xl:w-96 object-cover rounded-2xl"
+                alt="Villa ownership advisor"
+                className="relative z-10 w-80 xl:w-96 rounded-3xl object-cover"
+                style={{ boxShadow: "0 40px 100px rgba(8,29,58,0.5)" }}
               />
-              {/* Floating badge */}
-              <div className="absolute -left-8 bottom-20 z-20 bg-card/90 backdrop-blur-sm border border-border rounded-xl px-4 py-3 shadow-2xl">
-                <p className="text-xs text-muted-foreground">Avg. owner increase</p>
-                <p className="text-2xl font-bold text-primary">+37%</p>
-                <p className="text-xs text-green-400">rental income</p>
+              {/* Floating stat */}
+              <div className="absolute -left-6 bottom-16 z-20 rounded-2xl px-4 py-3 border"
+                style={{ background: "rgba(8,29,58,0.9)", backdropFilter: "blur(12px)", borderColor: "rgba(33,102,243,0.3)", boxShadow: "0 8px 32px rgba(8,29,58,0.4)" }}>
+                <p className="text-xs font-semibold" style={{ color: "rgba(255,255,255,0.55)" }}>Avg. owner increase</p>
+                <p className="text-2xl font-extrabold text-brand-yellow">+37%</p>
+                <p className="text-xs font-semibold text-brand-green">rental income</p>
               </div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        style={{ color: "rgba(255,255,255,0.4)" }}
       >
         <ChevronDown className="w-6 h-6" />
       </motion.div>
