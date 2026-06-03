@@ -7,19 +7,19 @@ export default function VideoSection({ onDownload }) {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <section id="video" className="relative py-16 lg:py-20 overflow-hidden bg-[#050d1a]">
+    <section id="video" className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-[#050d1a]">
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-8"
+          className="text-center mb-6 sm:mb-8"
         >
-          <h2 className="font-display font-extrabold text-white text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight mb-3">
+          <h2 className="font-display font-extrabold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl uppercase tracking-tight mb-2 sm:mb-3">
             WATCH THE FREE VIDEO
           </h2>
-          <p className="text-white/55 text-base max-w-xl mx-auto">
+          <p className="text-white/55 text-sm sm:text-base max-w-xl mx-auto">
             In this full 1-hour 10-minute webinar, discover the 7 critical truths every Orlando villa owner needs to know.
           </p>
         </motion.div>
@@ -79,18 +79,18 @@ export default function VideoSection({ onDownload }) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center space-y-3"
+          className="text-center space-y-3 sm:space-y-4"
         >
           <Button
             size="lg"
             onClick={onDownload}
             data-event="toolkit_download_started"
-            className="bg-primary hover:bg-primary/90 text-white font-extrabold text-lg px-10 py-7 rounded-xl uppercase tracking-wide glow-orange transition-all hover:scale-[1.02] shadow-xl"
+            className="bg-primary hover:bg-primary/90 text-white font-extrabold text-base sm:text-lg px-8 sm:px-10 py-5 sm:py-7 rounded-xl uppercase tracking-wide glow-orange transition-all hover:scale-[1.02] shadow-xl"
           >
-            <Download className="w-5 h-5 mr-2" />
+            <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
             DOWNLOAD FREE TOOLKIT NOW
           </Button>
-          <div className="flex flex-wrap items-center justify-center gap-4 text-white/40 text-xs font-semibold">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-white/40 text-xs font-semibold">
             <span className="flex items-center gap-1"><Lock className="w-3 h-3" /> 100% Free</span>
             <span>•</span>
             <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3" /> No Spam, Ever</span>

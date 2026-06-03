@@ -17,27 +17,27 @@ const WhatsAppIcon = () => (
 export default function Footer() {
   return (
     <footer className="bg-[#1a3a6b] text-white">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 pt-14 pb-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-6">
 
         {/* Top grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 pb-8 sm:pb-10">
 
           {/* Brand */}
-          <div className="space-y-3">
-            <h2 className="font-extrabold text-xl tracking-tight">
+          <div className="space-y-2.5 sm:space-y-3">
+            <h2 className="font-extrabold text-lg sm:text-xl tracking-tight">
               <span className="text-[#4db8ff]">KNIGHTSTRIDER</span>{" "}
               <span className="text-white">VILLAS</span>
             </h2>
-            <p className="text-white/60 text-sm leading-relaxed">
-              No booking fees. 0% commission.<br />
+            <p className="text-white/60 text-xs sm:text-sm leading-relaxed">
+              No booking fees. 0% commission.<br className="hidden sm:inline" />
               100% Good times. Stride on!
             </p>
           </div>
 
           {/* For Guests */}
-          <div className="space-y-3">
-            <p className="font-bold text-white text-sm">For Guests</p>
-            <ul className="space-y-2 text-white/60 text-sm">
+          <div className="space-y-2.5 sm:space-y-3">
+            <p className="font-bold text-white text-xs sm:text-sm">For Guests</p>
+            <ul className="space-y-1.5 sm:space-y-2 text-white/60 text-xs sm:text-sm">
               <li><a href="https://knightstridervillas.com" className="hover:text-white transition-colors">Vacation Rentals</a></li>
               <li><a href="https://knightstridervillas.com/deals" className="hover:text-white transition-colors">Latest Deals</a></li>
               <li><a href="https://knightstridervillas.com/verify" className="hover:text-white transition-colors">Villa Verification</a></li>
@@ -45,18 +45,18 @@ export default function Footer() {
           </div>
 
           {/* For Owners */}
-          <div className="space-y-3">
-            <p className="font-bold text-white text-sm">For Owners</p>
-            <ul className="space-y-2 text-white/60 text-sm">
+          <div className="space-y-2.5 sm:space-y-3">
+            <p className="font-bold text-white text-xs sm:text-sm">For Owners</p>
+            <ul className="space-y-1.5 sm:space-y-2 text-white/60 text-xs sm:text-sm">
               <li><a href="https://knightstridervillas.com/list" className="hover:text-white transition-colors">List My Villa</a></li>
               <li><a href="https://knightstridervillas.com/dashboard" className="hover:text-white transition-colors">Owner Dashboard</a></li>
             </ul>
           </div>
 
           {/* Company */}
-          <div className="space-y-3">
-            <p className="font-bold text-white text-sm">Company</p>
-            <ul className="space-y-2 text-white/60 text-sm">
+          <div className="space-y-2.5 sm:space-y-3">
+            <p className="font-bold text-white text-xs sm:text-sm">Company</p>
+            <ul className="space-y-1.5 sm:space-y-2 text-white/60 text-xs sm:text-sm">
               <li><a href="https://knightstridervillas.com/about" className="hover:text-white transition-colors">About Us</a></li>
               <li><a href="https://knightstridervillas.com/faq" className="hover:text-white transition-colors">FAQ</a></li>
               <li><a href="https://knightstridervillas.com/policies" className="hover:text-white transition-colors">Policies</a></li>
@@ -66,17 +66,17 @@ export default function Footer() {
         </div>
 
         {/* Social icons */}
-        <div className="flex justify-center gap-6 py-6 border-t border-white/10">
+        <div className="flex justify-center gap-4 sm:gap-6 py-4 sm:py-6 border-t border-white/10">
           {[
-            { icon: <Facebook className="w-5 h-5" />, href: "#" },
-            { icon: <Instagram className="w-5 h-5" />, href: "#" },
+            { icon: <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />, href: "#" },
+            { icon: <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />, href: "#" },
             { icon: <TikTokIcon />, href: "#" },
             { icon: <WhatsAppIcon />, href: "#" },
           ].map((s, i) => (
             <a
               key={i}
               href={s.href}
-              className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center text-white/70 hover:text-white hover:border-white/60 transition-all"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-white/25 flex items-center justify-center text-white/70 hover:text-white hover:border-white/60 transition-all"
             >
               {s.icon}
             </a>
@@ -84,8 +84,8 @@ export default function Footer() {
         </div>
 
         {/* Legal */}
-        <div className="border-t border-white/10 pt-5 text-center">
-          <p className="text-white/40 text-xs">
+        <div className="border-t border-white/10 pt-4 sm:pt-5 text-center">
+          <p className="text-white/40 text-[10px] sm:text-xs px-4">
             Knightstrider Villas Direct is registered in USA under Vacation Villas Direct. Registered LLC (EIN 93-3504773).
           </p>
         </div>
