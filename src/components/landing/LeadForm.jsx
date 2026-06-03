@@ -44,7 +44,7 @@ export default function LeadForm({ id }) {
     });
 
     setLoading(false);
-    setSubmitted(true);
+    window.location.href = "/thank-you";
   };
 
   return (
