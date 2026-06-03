@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { Play, Download, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const HERO_BG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/03f2c4ed3_generated_f892cc25.png";
-const HOST_IMG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/fd970fc2b_generated_217dc82d.png";
+const HERO_BG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/39a79cad3_generated_image.png";
+const HOST_IMG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/cd5c054eb_generated_image.png";
 
 export default function HeroSection({ onWatchVideo, onDownload }) {
   return (

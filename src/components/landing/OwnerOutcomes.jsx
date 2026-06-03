@@ -11,7 +11,7 @@ const outcomes = [
   "Decide whether to hold, improve, or sell with confidence",
 ];
 
-const VILLA_BG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/575943ab0_generated_6d451509.png";
+const VILLA_BG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/0062d0442_generated_image.png";
 
 export default function OwnerOutcomes() {
   return (

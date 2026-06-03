@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Download, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const TOOLKIT_IMG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/3979436f5_generated_f57946ad.png";
+const TOOLKIT_IMG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/4d6430a1f_generated_image.png";
 
 export default function ToolkitPreview({ onDownload }) {
   return (
