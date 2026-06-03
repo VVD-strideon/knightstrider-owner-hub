@@ -37,8 +37,8 @@ export default function ToolkitSection({ onDownload }) {
                 className="rounded-2xl shadow-2xl w-full"
               />
               {/* "9 TOOLS" badge */}
-              <div className="absolute -right-4 -bottom-4 bg-accent text-white rounded-2xl p-4 shadow-2xl text-center border-4 border-white">
-                <p className="text-5xl font-extrabold leading-none">9</p>
+              <div className="absolute -right-2 sm:-right-4 -bottom-2 sm:-bottom-4 bg-accent text-white rounded-2xl p-3 sm:p-4 shadow-2xl text-center border-4 border-white">
+                <p className="text-4xl sm:text-5xl font-extrabold leading-none">9</p>
                 <p className="text-xs font-extrabold tracking-wider uppercase leading-tight mt-1">TOOLS<br />&amp; GUIDES</p>
                 <p className="text-xs font-bold text-white/80 uppercase tracking-widest mt-1">INSTANT ACCESS</p>
               </div>

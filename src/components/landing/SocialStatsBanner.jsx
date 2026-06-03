@@ -13,12 +13,12 @@ const stats = [
 export default function SocialStatsBanner() {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-slate-100 px-6 py-8">
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-6 text-center">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 text-center">
         {stats.map((s, i) => (
           <div key={i} className="flex flex-col items-center gap-2">
             {s.icon}
-            <div className="text-2xl font-black text-slate-900">{s.value}</div>
-            <div className="text-sm font-semibold text-slate-800">{s.label}</div>
+            <div className="text-xl sm:text-2xl font-black text-slate-900">{s.value}</div>
+            <div className="text-xs sm:text-sm font-semibold text-slate-800">{s.label}</div>
             <div className="text-xs text-slate-400">{s.sub}</div>
           </div>
         ))}

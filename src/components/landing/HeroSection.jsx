@@ -132,7 +132,7 @@ export default function HeroSection({ onDownload }) {
           </p>
 
           {/* Bullets */}
-          <ul className="space-y-3">
+          <ul className="space-y-2.5">
             {[
               "Why 'revenue is not profit' — and what your real numbers look like",
               "The management company trick that costs owners 34% (not 14%)",
@@ -140,7 +140,7 @@ export default function HeroSection({ onDownload }) {
               "The direct booking strategy that eliminated OTA fees entirely",
               "What 76.7 million Orlando visitors means for your villa's potential",
             ].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-white/85 text-sm sm:text-base">
+              <li key={item} className="flex items-start gap-2.5 text-white/85 text-sm">
                 <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 {item}
               </li>

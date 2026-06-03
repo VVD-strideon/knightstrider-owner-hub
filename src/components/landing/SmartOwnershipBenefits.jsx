@@ -23,7 +23,7 @@ export default function SmartOwnershipBenefits() {
         >
           THE BENEFITS OF SMART OWNERSHIP
         </motion.p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-4">
           {benefits.map((b, i) => (
             <motion.div
               key={b.label}
@@ -37,7 +37,7 @@ export default function SmartOwnershipBenefits() {
               <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${b.href ? "bg-orange-100 border border-orange-300 group-hover:bg-orange-500" : "bg-accent/10 border border-accent/20"}`}>
                 <b.icon className={`w-7 h-7 transition-colors ${b.href ? "text-orange-500 group-hover:text-white" : "text-accent"}`} />
               </div>
-              <p className={`font-extrabold text-xs tracking-wide uppercase leading-tight transition-colors ${b.href ? "text-orange-500 group-hover:text-orange-600" : "text-[#0a1628]"}`}>{b.label}</p>
+              <p className={`font-extrabold text-[10px] sm:text-xs tracking-wide uppercase leading-tight transition-colors ${b.href ? "text-orange-500 group-hover:text-orange-600" : "text-[#0a1628]"}`}>{b.label}</p>
               <p className="text-gray-500 text-xs leading-snug">{b.desc}</p>
             </motion.div>
           ))}

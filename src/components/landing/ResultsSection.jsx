@@ -89,7 +89,7 @@ export default function ResultsSection() {
           transition={{ delay: 0.15 }}
           className="rounded-2xl shadow-xl border border-blue-100 overflow-hidden"
         >
-          <div className="grid lg:grid-cols-[55%_45%] min-h-[320px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] min-h-[320px]">
             {/* Left: content panel */}
             <div className="bg-white px-8 py-10 flex flex-col justify-center space-y-5">
               <h3 className="font-extrabold leading-tight" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
@@ -125,7 +125,7 @@ export default function ResultsSection() {
             </div>
 
             {/* Right: full-bleed photo */}
-            <div className="relative min-h-[280px] lg:min-h-0">
+            <div className="relative min-h-[240px] lg:min-h-0">
               <img
                 src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/6de1d82af_UntitledMediumBannerUSLandscape3.png"
                 alt="Laura G, villa owner"
