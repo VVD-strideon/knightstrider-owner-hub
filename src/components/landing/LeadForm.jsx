@@ -131,7 +131,6 @@ export default function LeadForm({ id }) {
                 <div>
                   <Label htmlFor="address" className="text-white text-sm mb-1.5 block">
                     Villa Address (first line) <span className="text-primary">*</span>
-                    <span className="text-muted-foreground font-normal"> (type N/A if not applicable)</span>
                   </Label>
                   <Input
                     id="address"
