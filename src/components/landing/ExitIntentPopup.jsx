@@ -80,6 +80,7 @@ export default function ExitIntentPopup({ onDownload }) {
         consent: consent,
         source: "exit_intent_popup",
         email_sent: false,
+        lead_score: 25,
       });
 
       base44.analytics.track({
