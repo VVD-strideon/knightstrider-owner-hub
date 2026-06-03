@@ -87,43 +87,52 @@ export default function ResultsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="bg-white rounded-2xl shadow-xl border border-blue-100 p-6 sm:p-8"
+          className="rounded-2xl shadow-xl border border-blue-100 overflow-hidden"
         >
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            {/* Left: headline + info + CTA */}
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-extrabold text-4xl sm:text-5xl leading-tight">
-                  <span className="text-[#1a56db]">12</span> <span className="text-[#111827]">ENQUIRIES</span><br />
-                  <span className="text-[#111827]">IN 24 HOURS</span>
-                </h3>
-              </div>
-              
-              <p className="text-[#111827] font-semibold">We are 50% booked for 2027 all from <strong>Knightstrider Villas</strong>.</p>
-              
+          <div className="grid lg:grid-cols-[55%_45%] min-h-[320px]">
+            {/* Left: content panel */}
+            <div className="bg-white px-8 py-10 flex flex-col justify-center space-y-5">
+              <h3 className="font-extrabold leading-tight" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+                <span className="text-[#1a56db]">12</span>{" "}
+                <span className="text-[#0a1628]">ENQUIRIES</span>
+                <br />
+                <span className="text-[#0a1628]">IN 24 HOURS</span>
+              </h3>
+
+              <p className="text-[#374151] text-sm sm:text-base">
+                We are 50% booked for 2027 all from <strong>Knightstrider Villas</strong>.
+              </p>
+
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
                 ))}
               </div>
-              
+
               <div>
-                <p className="font-bold text-[#111827] text-sm">Laura G, Project Pixiedust Villa Owner</p>
-                <p className="text-accent text-xs font-semibold mt-0.5">DBPR License: DWE5921586</p>
+                <p className="font-bold text-[#111827] text-sm">
+                  Laura G,{" "}
+                  <span className="font-normal">Project Pixiedust Villa Owner</span>
+                </p>
+                <p className="text-[#1a56db] text-xs font-bold mt-0.5 uppercase tracking-wide">
+                  DBPR License: DWE5921586
+                </p>
               </div>
 
-              <button className="bg-accent hover:bg-accent/90 text-white font-extrabold text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all">
-                See How Your Villa Performs →
+              <button className="self-start bg-[#ff6600] hover:bg-[#e55a00] text-white font-extrabold text-sm uppercase tracking-widest px-7 py-3 rounded-lg transition-all shadow-md">
+                See How Your Villa Performs &nbsp;→
               </button>
             </div>
 
-            {/* Right: photo with villa background */}
-            <div className="relative h-96 rounded-2xl overflow-hidden">
+            {/* Right: full-bleed photo */}
+            <div className="relative min-h-[280px] lg:min-h-0">
               <img
                 src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/bb1c842f3_image.png"
-                alt="Laura G with villa"
-                className="w-full h-full object-cover"
+                alt="Laura G, villa owner"
+                className="absolute inset-0 w-full h-full object-cover object-top"
               />
+              {/* subtle left-fade so it blends into the white panel */}
+              <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
         </motion.div>
