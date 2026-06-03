@@ -59,33 +59,15 @@ export default function ThankYou() {
           Download it now or check your email shortly.
         </motion.p>
 
-        {/* Download Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="mb-8"
-        >
-          <Button
-            size="lg"
-            onClick={handleDownload}
-            data-event="toolkit_download_started"
-            className="bg-primary hover:bg-primary/90 text-white font-bold text-lg px-10 py-6 rounded-xl glow-orange transition-all hover:scale-[1.02] shadow-2xl"
-          >
-            <Download className="w-6 h-6 mr-2" />
-            Download Toolkit PDF Now
-          </Button>
-        </motion.div>
-
         {/* Email Confirmation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="flex items-center justify-center gap-3 text-muted-foreground mb-10"
+          transition={{ delay: 0.5 }}
+          className="flex items-center justify-center gap-3 text-muted-foreground mb-8"
         >
-          <Mail className="w-5 h-5 text-accent" />
-          <span className="text-sm">
+          <Mail className="w-6 h-6 text-accent" />
+          <span className="text-base">
             Can't find the email? Check your <strong className="text-white">spam folder</strong>
           </span>
         </motion.div>
