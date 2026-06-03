@@ -90,41 +90,38 @@ export default function ResultsSection() {
           className="bg-white rounded-2xl shadow-xl border border-blue-100 p-6 sm:p-8"
         >
           <div className="flex flex-col sm:flex-row gap-6 items-start">
-            {/* Left: owner info */}
-            <div className="flex gap-4 items-start min-w-0 sm:w-56 flex-shrink-0">
-              <img
-                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=120&h=120&fit=crop&crop=face"
-                alt="Sarah M."
-                className="w-20 h-20 rounded-xl object-cover flex-shrink-0 shadow"
-              />
-              <div>
-                <p className="font-extrabold text-[#111827] text-base">Reunion Resort Villa</p>
-                <p className="text-gray-400 text-xs mt-0.5">5 Bed · 5.5 Bath · Private Pool</p>
-                <ul className="mt-3 space-y-1.5">
-                  {checks.map((c) => (
-                    <li key={c} className="flex items-center gap-1.5">
-                      <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-600 text-xs">{c}</span>
-                    </li>
-                  ))}
-                </ul>
+            {/* Left: headline + owner info */}
+            <div className="flex-shrink-0 sm:w-64">
+              <p className="font-extrabold text-[#1a56db] text-3xl sm:text-4xl leading-tight">
+                12 ENQUIRIES<br />IN 24 HOURS
+              </p>
+              <div className="mt-4">
+                <p className="font-bold text-[#111827] text-sm">Laura G, Project Pixiedust Villa Owner</p>
+                <p className="text-[#1a56db] text-xs font-semibold mt-0.5">DBPR License: DWE5921586</p>
               </div>
             </div>
 
             {/* Divider */}
             <div className="hidden sm:block w-px self-stretch bg-gray-100" />
 
-            {/* Right: quote */}
-            <div className="flex-1 space-y-3">
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
-                ))}
+            {/* Right: photo + quote */}
+            <div className="flex-1 flex flex-col sm:flex-row gap-5 items-start">
+              <img
+                src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/bb1c842f3_image.png"
+                alt="Laura G"
+                className="w-24 h-24 rounded-xl object-cover flex-shrink-0 shadow"
+              />
+              <div className="space-y-3">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
+                  ))}
+                </div>
+                <p className="text-[#111827] text-base sm:text-lg leading-relaxed">
+                  "I listed with Knightstrider Villas and had <strong>12 enquiries in 24 hours!</strong> No commission, no middlemen. Just direct bookings."
+                </p>
+                <p className="text-[#1a56db] font-bold">– Laura G.</p>
               </div>
-              <p className="text-[#111827] text-base sm:text-lg leading-relaxed">
-                "I finally have a clear plan and the right tools. My guests love the experience, and my numbers speak for themselves."
-              </p>
-              <p className="text-[#1a56db] font-bold">– Sarah M.</p>
             </div>
           </div>
         </motion.div>
