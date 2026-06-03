@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Play, Download, CheckCircle } from "lucide-react";
+import { Play, Download, CheckCircle, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HERO_BG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/39a79cad3_generated_image.png";
@@ -148,15 +148,23 @@ export default function HeroSection({ onDownload }) {
           </ul>
 
           {/* CTA */}
-          <Button
-            size="lg"
-            onClick={onDownload}
-            data-event="toolkit_download_started"
-            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-extrabold text-base sm:text-lg px-8 py-6 rounded-xl glow-orange transition-all hover:scale-[1.02] uppercase tracking-wide shadow-xl"
-          >
-            Get Free Access to Watch
-            <Play className="w-4 h-4 fill-white ml-1" />
-          </Button>
+          <div className="space-y-3 w-full">
+            <button
+              onClick={onDownload}
+              data-event="toolkit_download_started"
+              className="w-full bg-primary hover:bg-primary/90 text-white font-extrabold text-lg uppercase tracking-widest px-8 py-5 rounded-2xl glow-orange transition-all hover:scale-[1.01] shadow-xl flex items-center justify-center gap-3"
+            >
+              <Download className="w-5 h-5" />
+              DOWNLOAD YOUR FREE TOOLKIT NOW
+            </button>
+            <div className="flex items-center justify-center gap-4 text-white/60 text-xs font-semibold">
+              <span className="flex items-center gap-1"><Lock className="w-3 h-3" /> 100% FREE</span>
+              <span>•</span>
+              <span>No Obligation</span>
+              <span>•</span>
+              <span>Instant Access</span>
+            </div>
+          </div>
           </div>
         </motion.div>
 
