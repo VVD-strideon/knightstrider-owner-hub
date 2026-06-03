@@ -29,11 +29,13 @@ export default function HeroSection({ onDownload }) {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
+          className="overflow-hidden"
+          style={{ margin: '-18% -12%' }}
         >
           <img
             src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/e5e48228c_Knightstridervillaslanscapewhite1920x1080px1920x1080pxLogo.png"
             alt="Knightstrider Villas Direct"
-            className="h-24 sm:h-32 w-auto object-contain"
+            className="w-72 sm:w-96 object-contain"
           />
         </motion.div>
 
