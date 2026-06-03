@@ -26,7 +26,7 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <HeroSection onWatchVideo={scrollToVideo} onDownload={scrollToForm} />
       <BenefitsStrip />
-      <VideoSection />
+      <VideoSection onDownload={scrollToForm} />
       <ToolkitSection onDownload={scrollToForm} />
       <SmartOwnershipBenefits />
       <ResultsSection />

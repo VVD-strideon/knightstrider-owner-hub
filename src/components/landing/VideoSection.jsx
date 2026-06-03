@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import { Play, Download, Lock, ShieldCheck } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-export default function VideoSection() {
+export default function VideoSection({ onDownload }) {
   const [playing, setPlaying] = useState(false);
 
   return (
@@ -28,7 +29,7 @@ export default function VideoSection() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative rounded-2xl overflow-hidden border-2 border-primary/30 glow-orange"
+          className="relative rounded-2xl overflow-hidden border-2 border-primary/30 glow-orange mb-8"
         >
           {!playing ? (
             <div className="relative aspect-video bg-[#0d1b2a] cursor-pointer group" onClick={() => setPlaying(true)}>
@@ -71,6 +72,29 @@ export default function VideoSection() {
               />
             </div>
           )}
+        </motion.div>
+
+        {/* Download CTA below video */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center space-y-3"
+        >
+          <Button
+            size="lg"
+            onClick={onDownload}
+            data-event="toolkit_download_started"
+            className="bg-primary hover:bg-primary/90 text-white font-extrabold text-lg px-10 py-7 rounded-xl uppercase tracking-wide glow-orange transition-all hover:scale-[1.02] shadow-xl"
+          >
+            <Download className="w-5 h-5 mr-2" />
+            DOWNLOAD FREE TOOLKIT NOW
+          </Button>
+          <div className="flex flex-wrap items-center justify-center gap-4 text-white/40 text-xs font-semibold">
+            <span className="flex items-center gap-1"><Lock className="w-3 h-3" /> 100% Free</span>
+            <span>•</span>
+            <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3" /> No Spam, Ever</span>
+          </div>
         </motion.div>
       </div>
     </section>
