@@ -18,7 +18,7 @@ export default function OwnerOutcomes() {
     <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={VILLA_BG} alt="Orlando villa lifestyle" className="w-full h-full object-cover" />
+        <img src={VILLA_BG} alt="Orlando villa lifestyle" className="w-full h-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-[#0A1628]/92" />
       </div>
 

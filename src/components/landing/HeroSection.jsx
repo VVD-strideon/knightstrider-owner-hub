@@ -4,6 +4,7 @@ import { Play, Download, CheckCircle, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HERO_BG = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/39a79cad3_generated_image.png";
+const HERO_BG_MOBILE = "https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/39a79cad3_generated_image.png";
 
 const bullets = [
   "Protect your investment",
@@ -18,7 +19,10 @@ export default function HeroSection({ onDownload }) {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={HERO_BG} alt="Luxury Orlando villa" className="w-full h-full object-cover" />
+        <picture>
+          <source media="(max-width: 768px)" srcSet={HERO_BG_MOBILE} />
+          <img src={HERO_BG} alt="Luxury Orlando villa" className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-[#050d1a]/95 via-[#071224]/90 to-[#050d1a]/98" />
       </div>
 

@@ -130,6 +130,7 @@ export default function ResultsSection() {
                 src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/6de1d82af_UntitledMediumBannerUSLandscape3.png"
                 alt="Laura G, villa owner"
                 className="absolute inset-0 w-full h-full object-cover object-top"
+                loading="lazy"
               />
               {/* subtle left-fade so it blends into the white panel */}
               <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-transparent pointer-events-none" />

@@ -35,6 +35,7 @@ export default function ToolkitSection({ onDownload }) {
                 src={TOOLKIT_IMG}
                 alt="9-Tool Villa Owner Toolkit"
                 className="rounded-2xl shadow-2xl w-full"
+                loading="lazy"
               />
               {/* "9 TOOLS" badge */}
               <div className="absolute -right-2 sm:-right-4 -bottom-2 sm:-bottom-4 bg-accent text-white rounded-2xl p-3 sm:p-4 shadow-2xl text-center border-4 border-white">

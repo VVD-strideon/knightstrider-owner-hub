@@ -1,27 +1,25 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import HeroSection from "@/components/landing/HeroSection";
 import BenefitsStrip from "@/components/landing/BenefitsStrip";
 import VideoSection from "@/components/landing/VideoSection";
-import ToolkitSection from "@/components/landing/ToolkitSection";
 import SmartOwnershipBenefits from "@/components/landing/SmartOwnershipBenefits";
 import ResultsSection from "@/components/landing/ResultsSection";
 import LeadForm from "@/components/landing/LeadForm";
 import FAQSection from "@/components/landing/FAQSection";
-import VillaPerformanceSection from "@/components/landing/VillaPerformanceSection";
 import SocialStatsBanner from "@/components/landing/SocialStatsBanner";
 import FinalCTA from "@/components/landing/FinalCTA";
 import Footer from "@/components/landing/Footer";
 import { base44 } from "@/api/base44Client";
 
+// Lazy load components below the fold
+const ToolkitSection = lazy(() => import("@/components/landing/ToolkitSection"));
+const VillaPerformanceSection = lazy(() => import("@/components/landing/VillaPerformanceSection"));
+const ExitIntentPopup = lazy(() => import("@/components/landing/ExitIntentPopup"));
+
 export default function Home() {
   const scrollToForm = () => {
     base44.analytics.track({ eventName: "toolkit_download_started", properties: { source: "cta_button" } });
     document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToVideo = () => {
-    base44.analytics.track({ eventName: "watch_video_clicked", properties: { source: "cta_button" } });
-    document.getElementById("video")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -33,14 +31,21 @@ export default function Home() {
           <SocialStatsBanner />
         </div>
       </div>
-      <ToolkitSection onDownload={scrollToForm} />
+      <Suspense fallback={<div className="py-20 bg-white" />}>
+        <ToolkitSection onDownload={scrollToForm} />
+      </Suspense>
       <SmartOwnershipBenefits />
       <ResultsSection />
-      <VillaPerformanceSection onDownload={scrollToForm} />
+      <Suspense fallback={<div className="py-20 bg-background" />}>
+        <VillaPerformanceSection onDownload={scrollToForm} />
+      </Suspense>
       <LeadForm id="lead-form" />
       <FAQSection />
       <FinalCTA onDownload={scrollToForm} />
       <Footer />
+      <Suspense fallback={null}>
+        <ExitIntentPopup onDownload={scrollToForm} />
+      </Suspense>
     </div>
   );
 }
