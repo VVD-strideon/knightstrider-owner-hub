@@ -1,7 +1,7 @@
 Deno.serve(async (req) => {
   try {
     // Parse incoming request
-    const { email, first_name } = await req.json();
+    const { email, first_name, lead_score } = await req.json();
 
     if (!email || !first_name) {
       return Response.json({ error: 'Email and first name are required' }, { status: 400 });
@@ -12,15 +12,51 @@ Deno.serve(async (req) => {
       throw new Error('RESEND_API_KEY not configured');
     }
 
-    // Send email via Resend
-    const response = await fetch('https://api.resend.com/emails', {
+    // Determine segment based on lead score
+    // Create these segments in Resend dashboard first:
+    // - Hot Leads (score >= 75): Watched video + downloaded toolkit
+    // - Warm Leads (score 25-74): Downloaded toolkit only
+    // - Cold Leads (score < 25): Minimal engagement
+    const AUDIENCE_ID = Deno.env.get("RESEND_AUDIENCE_ID") || "";
+    
+    // Step 1: Create or update contact in Resend with lead score attribute
+    const contactPayload = {
+      email: email,
+      first_name: first_name,
+      audience_id: AUDIENCE_ID,
+      attributes: {
+        lead_score: lead_score || 0,
+        source: "landing_page",
+      }
+    };
+
+    const contactResponse = await fetch('https://api.resend.com/contacts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify(contactPayload),
+    });
+
+    // 409 = contact already exists, that's OK - we'll update their score
+    if (!contactResponse.ok && contactResponse.status !== 409) {
+      const contactError = await contactResponse.json();
+      console.error('Contact creation failed:', contactError);
+      // Continue anyway - we still want to send the email
+    }
+
+    // Step 2: Send the toolkit email
+    const FROM_EMAIL = 'Knightstrider Villas <onboarding@resend.dev>';
+
+    const emailResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'Knightstrider Villas <onboarding@resend.dev>', // Update this after verifying your domain at resend.com/domains
+        from: FROM_EMAIL,
         to: email,
         subject: "Your Free Villa Owner Toolkit is Here! 🎉",
         html: `
@@ -74,9 +110,9 @@ Deno.serve(async (req) => {
       }),
     });
 
-    const result = await response.json();
+    const result = await emailResponse.json();
     
-    if (!response.ok) {
+    if (!emailResponse.ok) {
       throw new Error(result.message || 'Failed to send email');
     }
 

@@ -66,11 +66,12 @@ export default function LeadForm({ id }) {
       },
     });
 
-    // Send toolkit email
+    // Send toolkit email with lead score for segmentation
     try {
       await base44.functions.invoke("sendToolkitEmail", {
         email: form.email,
         first_name: form.first_name,
+        lead_score: leadScore,
       });
       
       // Update lead to mark email as sent

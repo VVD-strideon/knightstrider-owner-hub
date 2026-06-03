@@ -87,11 +87,12 @@ export default function ExitIntentPopup({ onDownload }) {
         properties: { email: email },
       });
 
-      // Send toolkit email
+      // Send toolkit email with lead score for segmentation
       try {
         await base44.functions.invoke("sendToolkitEmail", {
           email: email,
           first_name: "Villa Owner",
+          lead_score: 25,
         });
         
         // Update lead to mark email as sent
