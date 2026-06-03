@@ -38,9 +38,9 @@ export default function Footer() {
           <div className="space-y-3">
             <p className="font-bold text-white text-sm">For Guests</p>
             <ul className="space-y-2 text-white/60 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">Vacation Rentals</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Latest Deals</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Villa Verification</a></li>
+              <li><a href="https://knightstridervillas.com" className="hover:text-white transition-colors">Vacation Rentals</a></li>
+              <li><a href="https://knightstridervillas.com/deals" className="hover:text-white transition-colors">Latest Deals</a></li>
+              <li><a href="https://knightstridervillas.com/verify" className="hover:text-white transition-colors">Villa Verification</a></li>
             </ul>
           </div>
 
@@ -48,8 +48,8 @@ export default function Footer() {
           <div className="space-y-3">
             <p className="font-bold text-white text-sm">For Owners</p>
             <ul className="space-y-2 text-white/60 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">List My Villa</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Owner Dashboard</a></li>
+              <li><a href="https://knightstridervillas.com/list" className="hover:text-white transition-colors">List My Villa</a></li>
+              <li><a href="https://knightstridervillas.com/dashboard" className="hover:text-white transition-colors">Owner Dashboard</a></li>
             </ul>
           </div>
 
@@ -57,10 +57,10 @@ export default function Footer() {
           <div className="space-y-3">
             <p className="font-bold text-white text-sm">Company</p>
             <ul className="space-y-2 text-white/60 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Policies</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Cookie Settings</a></li>
+              <li><a href="https://knightstridervillas.com/about" className="hover:text-white transition-colors">About Us</a></li>
+              <li><a href="https://knightstridervillas.com/faq" className="hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="https://knightstridervillas.com/policies" className="hover:text-white transition-colors">Policies</a></li>
+              <li><a href="https://knightstridervillas.com/cookies" className="hover:text-white transition-colors">Cookie Settings</a></li>
             </ul>
           </div>
         </div>
