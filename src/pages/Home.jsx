@@ -8,6 +8,7 @@ import ResultsSection from "@/components/landing/ResultsSection";
 import LeadForm from "@/components/landing/LeadForm";
 import FAQSection from "@/components/landing/FAQSection";
 import VillaPerformanceSection from "@/components/landing/VillaPerformanceSection";
+import SocialStatsBanner from "@/components/landing/SocialStatsBanner";
 import FinalCTA from "@/components/landing/FinalCTA";
 import Footer from "@/components/landing/Footer";
 import { base44 } from "@/api/base44Client";
@@ -27,6 +28,11 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <HeroSection onDownload={scrollToForm} />
       <BenefitsStrip />
+      <div className="bg-gradient-to-b from-white to-gray-50 py-8 px-4">
+        <div className="max-w-6xl mx-auto">
+          <SocialStatsBanner />
+        </div>
+      </div>
       <ToolkitSection onDownload={scrollToForm} />
       <SmartOwnershipBenefits />
       <ResultsSection />
