@@ -89,39 +89,41 @@ export default function ResultsSection() {
           transition={{ delay: 0.15 }}
           className="bg-white rounded-2xl shadow-xl border border-blue-100 p-6 sm:p-8"
         >
-          <div className="flex flex-col sm:flex-row gap-6 items-start">
-            {/* Left: headline + owner info */}
-            <div className="flex-shrink-0 sm:w-64">
-              <p className="font-extrabold text-[#1a56db] text-3xl sm:text-4xl leading-tight">
-                12 ENQUIRIES<br />IN 24 HOURS
-              </p>
-              <div className="mt-4">
-                <p className="font-bold text-[#111827] text-sm">Laura G, Project Pixiedust Villa Owner</p>
-                <p className="text-[#1a56db] text-xs font-semibold mt-0.5">DBPR License: DWE5921586</p>
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            {/* Left: headline + info + CTA */}
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-extrabold text-4xl sm:text-5xl leading-tight">
+                  <span className="text-[#1a56db]">12</span> <span className="text-[#111827]">ENQUIRIES</span><br />
+                  <span className="text-[#111827]">IN 24 HOURS</span>
+                </h3>
               </div>
+              
+              <p className="text-[#111827] font-semibold">We are 50% booked for 2027 all from <strong>Knightstrider Villas</strong>.</p>
+              
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
+                ))}
+              </div>
+              
+              <div>
+                <p className="font-bold text-[#111827] text-sm">Laura G, Project Pixiedust Villa Owner</p>
+                <p className="text-accent text-xs font-semibold mt-0.5">DBPR License: DWE5921586</p>
+              </div>
+
+              <button className="bg-accent hover:bg-accent/90 text-white font-extrabold text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-all">
+                See How Your Villa Performs →
+              </button>
             </div>
 
-            {/* Divider */}
-            <div className="hidden sm:block w-px self-stretch bg-gray-100" />
-
-            {/* Right: photo + quote */}
-            <div className="flex-1 flex flex-col sm:flex-row gap-5 items-start">
+            {/* Right: photo with villa background */}
+            <div className="relative h-96 rounded-2xl overflow-hidden">
               <img
                 src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/bb1c842f3_image.png"
-                alt="Laura G"
-                className="w-24 h-24 rounded-xl object-cover flex-shrink-0 shadow"
+                alt="Laura G with villa"
+                className="w-full h-full object-cover"
               />
-              <div className="space-y-3">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
-                  ))}
-                </div>
-                <p className="text-[#111827] text-base sm:text-lg leading-relaxed">
-                  "I listed with Knightstrider Villas and had <strong>12 enquiries in 24 hours!</strong> No commission, no middlemen. Just direct bookings."
-                </p>
-                <p className="text-[#1a56db] font-bold">– Laura G.</p>
-              </div>
             </div>
           </div>
         </motion.div>
