@@ -32,6 +32,21 @@
       "type": "string",
       "default": "landing_page",
       "description": "Lead acquisition source"
+    },
+    "email_sent": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether toolkit email was sent"
+    },
+    "video_watched": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether user watched the webinar video"
+    },
+    "lead_score": {
+      "type": "integer",
+      "default": 0,
+      "description": "Engagement-based lead score (0-100)"
     }
   },
   "required": [

@@ -87,6 +87,26 @@ export default function ThankYou() {
           Download it now or check your email shortly.
         </motion.p>
 
+        {/* Direct Download Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="mb-8"
+        >
+          <Button
+            onClick={handleDownload}
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-white font-bold text-lg px-8 py-6 rounded-xl glow-orange transition-all hover:scale-[1.02]"
+          >
+            <Download className="w-5 h-5 mr-2" />
+            Download Toolkit PDF Now
+          </Button>
+          <p className="text-muted-foreground text-xs mt-3">
+            Or check your email at <strong className="text-white">{userEmail || "your inbox"}</strong>
+          </p>
+        </motion.div>
+
         {/* Email Confirmation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

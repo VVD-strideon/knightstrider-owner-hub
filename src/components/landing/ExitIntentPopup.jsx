@@ -72,13 +72,14 @@ export default function ExitIntentPopup({ onDownload }) {
     setLoading(true);
     try {
       await base44.entities.Lead.create({
-        first_name: "Exit Intent",
+        first_name: "Exit Intent User",
         email: email,
         phone: undefined,
         villa_resort: "N/A",
         address: "N/A",
         consent: consent,
         source: "exit_intent_popup",
+        email_sent: false,
       });
 
       base44.analytics.track({
@@ -86,8 +87,25 @@ export default function ExitIntentPopup({ onDownload }) {
         properties: { email: email },
       });
 
+      // Send toolkit email
+      try {
+        await base44.functions.invoke("sendToolkitEmail", {
+          email: email,
+          first_name: "Villa Owner",
+        });
+        
+        // Update lead to mark email as sent
+        const leads = await base44.entities.Lead.filter({ email: email });
+        if (leads.length > 0) {
+          await base44.entities.Lead.update(leads[0].id, { email_sent: true });
+        }
+      } catch (emailError) {
+        console.error('Failed to send email:', emailError);
+      }
+
       // Save email to localStorage for auto-fill
       localStorage.setItem("exitPopupEmail", email);
+      localStorage.setItem("lastSubmittedEmail", email);
 
       setSubmitted(true);
     } catch (error) {

@@ -12,7 +12,7 @@ export default function LeadForm({ id }) {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     first_name: "",
-    email: "",
+    email: localStorage.getItem("exitPopupEmail") || "",
     phone: "",
     villa_resort: "",
     address: "",
@@ -41,6 +41,8 @@ export default function LeadForm({ id }) {
     const videoWatched = localStorage.getItem("videoWatched") === "true";
     const watchProgress = localStorage.getItem("watchProgress") || "0";
     
+    const leadScore = videoWatched ? 75 : 25;
+    
     await base44.entities.Lead.create({
       first_name: form.first_name,
       email: form.email,
@@ -49,6 +51,9 @@ export default function LeadForm({ id }) {
       address: form.address,
       consent: form.consent,
       source: "landing_page",
+      video_watched: videoWatched,
+      lead_score: leadScore,
+      email_sent: false,
     });
 
     base44.analytics.track({
@@ -57,9 +62,26 @@ export default function LeadForm({ id }) {
         source: "landing_page",
         video_watched: videoWatched,
         watch_progress: watchProgress,
-        lead_score: videoWatched ? 75 : 25,
+        lead_score: leadScore,
       },
     });
+
+    // Send toolkit email
+    try {
+      await base44.functions.invoke("sendToolkitEmail", {
+        email: form.email,
+        first_name: form.first_name,
+      });
+      
+      // Update lead to mark email as sent
+      const leads = await base44.entities.Lead.filter({ email: form.email });
+      if (leads.length > 0) {
+        await base44.entities.Lead.update(leads[0].id, { email_sent: true });
+      }
+    } catch (emailError) {
+      console.error('Failed to send email:', emailError);
+      // Continue anyway - don't block the user
+    }
 
     setLoading(false);
     
