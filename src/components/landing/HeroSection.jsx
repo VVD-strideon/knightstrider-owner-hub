@@ -29,15 +29,12 @@ export default function HeroSection({ onDownload }) {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="flex items-center gap-2"
         >
-          <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
-            <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-white"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z" /></svg>
-          </div>
-          <div className="leading-none text-left">
-            <p className="text-white font-extrabold text-xs tracking-widest uppercase">KNIGHTSTRIDER</p>
-            <p className="text-accent font-extrabold text-xs tracking-widest uppercase">VILLAS DIRECT</p>
-          </div>
+          <img
+            src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/e5e48228c_Knightstridervillaslanscapewhite1920x1080px1920x1080pxLogo.png"
+            alt="Knightstrider Villas Direct"
+            className="h-16 sm:h-20 w-auto object-contain"
+          />
         </motion.div>
 
         {/* Giant headline */}
