@@ -34,6 +34,7 @@ export default function HeroSection({ onDownload }) {
             src="https://media.base44.com/images/public/6a2044635ec5a2f4f231ed78/3cd8e4c2c_Untitleddesign25copy2.png"
             alt="Knightstrider Villas Direct"
             className="w-20 h-20 sm:w-24 sm:h-24 object-contain"
+            style={{ filter: 'invert(1) brightness(1.2)', mixBlendMode: 'screen' }}
           />
         </motion.div>
 
